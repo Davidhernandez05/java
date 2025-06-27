@@ -6,6 +6,7 @@ public class VariableAndConstants {
     int age = 28;
     boolean cierto = true;
     float precio = 2.23f;
+    int myInt; // Variable vacía.
 
     var year = 2025;
 
@@ -15,6 +16,9 @@ public class VariableAndConstants {
 
     name = "MoureDev";
     System.out.println("Mi nombre es: " + name);
+
+    myInt = 10;
+    System.out.println(myInt);
 
     System.out.println(year);
 
