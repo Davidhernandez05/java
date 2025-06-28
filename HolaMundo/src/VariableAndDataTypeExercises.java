@@ -1,4 +1,4 @@
-public class VariableAndDataTypeExersices {
+public class VariableAndDataTypeExercises {
 
   public static void main(String[] args) {
     // 1. Declara una variable de tipo String y asígnale tu nombre.
