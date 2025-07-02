@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e54ac83c-5125-46aa-9203-246255656d05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/OperatorsExercises.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VariableAndDataTypeExersices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VariableAndDataTypeExercises.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/operators.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Operators.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,34 +33,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.DataType.executor": "Run",
-    "Application.HelloWordExercises.executor": "Run",
-    "Application.HolaMundo.executor": "Run",
-    "Application.Operators.executor": "Run",
-    "Application.OperatorsExercises.executor": "Run",
-    "Application.VariableAndConstants.executor": "Run",
-    "Application.VariableAndDataTypeExersices.executor": "Run",
-    "Application.operators.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "onboarding.tips.debug.path": "/Users/davidhernandez/Desarrollo/curso-java/HolaMundo/src/Main.java",
-    "settings.editor.selected.configurable": "editor.preferences.folding"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.DataType.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloWordExercises.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HolaMundo.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Operators.executor&quot;: &quot;Run&quot;,
+    &quot;Application.OperatorsExercises.executor&quot;: &quot;Run&quot;,
+    &quot;Application.VariableAndConstants.executor&quot;: &quot;Run&quot;,
+    &quot;Application.VariableAndDataTypeExersices.executor&quot;: &quot;Run&quot;,
+    &quot;Application.operators.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/davidhernandez/Desarrollo/curso-java/HolaMundo/src/Main.java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.folding&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.OperatorsExercises">
     <configuration name="Operators" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Operators" />
+      <option name="MAIN_CLASS_NAME" value="c02_operators.Operators" />
       <module name="HolaMundo" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="OperatorsExercises" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="OperatorsExercises" />
+      <option name="MAIN_CLASS_NAME" value="c02_operators.OperatorsExercises" />
       <module name="HolaMundo" />
       <method v="2">
         <option name="Make" enabled="true" />

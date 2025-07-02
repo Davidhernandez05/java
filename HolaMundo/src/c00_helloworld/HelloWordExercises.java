@@ -1,3 +1,5 @@
+package c00_helloworld;
+
 public class HelloWordExercises {
   public static void main(String[] args) {
     // 1. Imprime un mensaje que diga tu nombre en lugar de "¡Hola Mundo!".

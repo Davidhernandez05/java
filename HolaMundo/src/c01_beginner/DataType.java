@@ -1,4 +1,4 @@
-import java.lang.reflect.Type;
+package c01_beginner;
 
 public class DataType {
   public static void main(String[] args) {
