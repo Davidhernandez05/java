@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e54ac83c-5125-46aa-9203-246255656d05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/c03_strings/Strings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c03_strings/StringsExercises.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +42,7 @@
     "Application.Operators.executor": "Run",
     "Application.OperatorsExercises.executor": "Run",
     "Application.Strings.executor": "Run",
+    "Application.StringsExercises.executor": "Run",
     "Application.VariableAndConstants.executor": "Run",
     "Application.VariableAndDataTypeExersices.executor": "Run",
     "Application.operators.executor": "Run",
@@ -53,7 +54,7 @@
     "settings.editor.selected.configurable": "editor.preferences.folding"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Strings">
+  <component name="RunManager" selected="Application.StringsExercises">
     <configuration name="Operators" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="c02_operators.Operators" />
       <module name="HolaMundo" />
@@ -81,8 +82,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StringsExercises" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="c03_strings.StringsExercises" />
+      <module name="HolaMundo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="c03_strings.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StringsExercises" />
         <item itemvalue="Application.Strings" />
         <item itemvalue="Application.OperatorsExercises" />
         <item itemvalue="Application.Operators" />
