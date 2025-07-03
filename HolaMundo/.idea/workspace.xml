@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e54ac83c-5125-46aa-9203-246255656d05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/c03_strings/StringsExercises.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c04_conditionals/Conditionals.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c04_conditionals/ConditionalsExercises.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +37,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Conditionals.executor": "Run",
+    "Application.ConditionalsExercises.executor": "Run",
     "Application.DataType.executor": "Run",
     "Application.HelloWordExercises.executor": "Run",
     "Application.HolaMundo.executor": "Run",
@@ -54,10 +57,29 @@
     "settings.editor.selected.configurable": "editor.preferences.folding"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.StringsExercises">
-    <configuration name="Operators" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="c02_operators.Operators" />
+  <component name="RunManager" selected="Application.ConditionalsExercises">
+    <configuration name="Conditionals" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="c04_conditionals.Conditionals" />
       <module name="HolaMundo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="c04_conditionals.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConditionalsExercises" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="c04_conditionals.ConditionalsExercises" />
+      <module name="HolaMundo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="c04_conditionals.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -97,10 +119,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ConditionalsExercises" />
+        <item itemvalue="Application.Conditionals" />
         <item itemvalue="Application.StringsExercises" />
         <item itemvalue="Application.Strings" />
         <item itemvalue="Application.OperatorsExercises" />
-        <item itemvalue="Application.Operators" />
       </list>
     </recent_temporary>
   </component>
