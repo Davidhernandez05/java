@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e54ac83c-5125-46aa-9203-246255656d05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/c04_conditionals/Conditionals.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/c04_conditionals/ConditionalsExercises.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c05_structures/Arrays.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +36,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Arrays.executor": "Run",
     "Application.Conditionals.executor": "Run",
     "Application.ConditionalsExercises.executor": "Run",
     "Application.DataType.executor": "Run",
@@ -57,7 +57,20 @@
     "settings.editor.selected.configurable": "editor.preferences.folding"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.ConditionalsExercises">
+  <component name="RunManager" selected="Application.Arrays">
+    <configuration name="Arrays" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="c05_structures.Arrays" />
+      <module name="HolaMundo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="c05_structures.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Conditionals" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="c04_conditionals.Conditionals" />
       <module name="HolaMundo" />
@@ -80,13 +93,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OperatorsExercises" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="c02_operators.OperatorsExercises" />
-      <module name="HolaMundo" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -119,11 +125,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Arrays" />
         <item itemvalue="Application.ConditionalsExercises" />
         <item itemvalue="Application.Conditionals" />
         <item itemvalue="Application.StringsExercises" />
         <item itemvalue="Application.Strings" />
-        <item itemvalue="Application.OperatorsExercises" />
       </list>
     </recent_temporary>
   </component>
