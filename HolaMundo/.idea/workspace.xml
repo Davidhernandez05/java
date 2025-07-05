@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e54ac83c-5125-46aa-9203-246255656d05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/c05_structures/Set.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c05_structures/Maps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/c05_structures/List.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/c05_structures/Lists.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/c05_structures/Set.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/c05_structures/Sets.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +45,7 @@
     "Application.HelloWordExercises.executor": "Run",
     "Application.HolaMundo.executor": "Run",
     "Application.List.executor": "Run",
+    "Application.Maps.executor": "Run",
     "Application.Operators.executor": "Run",
     "Application.OperatorsExercises.executor": "Run",
     "Application.Set.executor": "Run",
@@ -59,26 +62,13 @@
     "settings.editor.selected.configurable": "editor.preferences.folding"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Set">
+  <component name="RunManager" selected="Application.Maps">
     <configuration name="Arrays" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="c05_structures.Arrays" />
       <module name="HolaMundo" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="c05_structures.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Conditionals" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="c04_conditionals.Conditionals" />
-      <module name="HolaMundo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="c04_conditionals.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -99,8 +89,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="List" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="c05_structures.List" />
+    <configuration name="Lists" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="c05_structures.Lists" />
       <module name="HolaMundo" />
       <extension name="coverage">
         <pattern>
@@ -112,8 +102,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Set" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="c05_structures.Set" />
+    <configuration name="Maps" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="c05_structures.Maps" />
+      <module name="HolaMundo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="c05_structures.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Sets" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="c05_structures.Sets" />
       <module name="HolaMundo" />
       <extension name="coverage">
         <pattern>
@@ -127,11 +130,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Set" />
-        <item itemvalue="Application.List" />
+        <item itemvalue="Application.Maps" />
+        <item itemvalue="Application.Sets" />
+        <item itemvalue="Application.Lists" />
         <item itemvalue="Application.Arrays" />
         <item itemvalue="Application.ConditionalsExercises" />
-        <item itemvalue="Application.Conditionals" />
       </list>
     </recent_temporary>
   </component>

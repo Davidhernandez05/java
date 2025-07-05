@@ -1,9 +1,8 @@
 package c05_structures;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class List {
+public class Lists {
   public static void main(String[] args) {
 
     //Declaración y creación

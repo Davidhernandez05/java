@@ -2,7 +2,7 @@ package c05_structures;
 
 import java.util.HashSet;
 
-public class Set {
+public class Sets {
   public static void main(String[] args) {
     // Set es una estructura desordenada -> Sirve para acceder a los datos de una forma muy rápida.
     // Declaración y creación de Set:
