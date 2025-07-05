@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e54ac83c-5125-46aa-9203-246255656d05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/c05_structures/Maps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c05_structures/Exercises.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/c05_structures/List.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/c05_structures/Lists.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/c05_structures/Set.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/c05_structures/Sets.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +40,7 @@
     "Application.Conditionals.executor": "Run",
     "Application.ConditionalsExercises.executor": "Run",
     "Application.DataType.executor": "Run",
+    "Application.Exercises.executor": "Run",
     "Application.HelloWordExercises.executor": "Run",
     "Application.HolaMundo.executor": "Run",
     "Application.List.executor": "Run",
@@ -62,7 +61,7 @@
     "settings.editor.selected.configurable": "editor.preferences.folding"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Maps">
+  <component name="RunManager" selected="Application.Exercises">
     <configuration name="Arrays" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="c05_structures.Arrays" />
       <module name="HolaMundo" />
@@ -76,12 +75,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConditionalsExercises" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="c04_conditionals.ConditionalsExercises" />
+    <configuration name="Exercises" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="c05_structures.Exercises" />
       <module name="HolaMundo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="c04_conditionals.*" />
+          <option name="PATTERN" value="c05_structures.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -130,11 +129,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Exercises" />
         <item itemvalue="Application.Maps" />
         <item itemvalue="Application.Sets" />
         <item itemvalue="Application.Lists" />
         <item itemvalue="Application.Arrays" />
-        <item itemvalue="Application.ConditionalsExercises" />
       </list>
     </recent_temporary>
   </component>
