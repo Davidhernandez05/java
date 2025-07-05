@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e54ac83c-5125-46aa-9203-246255656d05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/c05_structures/Exercises.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c06_loops/Loops.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +44,7 @@
     "Application.HelloWordExercises.executor": "Run",
     "Application.HolaMundo.executor": "Run",
     "Application.List.executor": "Run",
+    "Application.Loops.executor": "Run",
     "Application.Maps.executor": "Run",
     "Application.Operators.executor": "Run",
     "Application.OperatorsExercises.executor": "Run",
@@ -61,20 +62,7 @@
     "settings.editor.selected.configurable": "editor.preferences.folding"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Exercises">
-    <configuration name="Arrays" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="c05_structures.Arrays" />
-      <module name="HolaMundo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="c05_structures.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Loops">
     <configuration name="Exercises" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="c05_structures.Exercises" />
       <module name="HolaMundo" />
@@ -94,6 +82,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="c05_structures.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Loops" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="c06_loops.Loops" />
+      <module name="HolaMundo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="c06_loops.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -129,11 +130,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Loops" />
         <item itemvalue="Application.Exercises" />
         <item itemvalue="Application.Maps" />
         <item itemvalue="Application.Sets" />
         <item itemvalue="Application.Lists" />
-        <item itemvalue="Application.Arrays" />
       </list>
     </recent_temporary>
   </component>
