@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e54ac83c-5125-46aa-9203-246255656d05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/c05_structures/List.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c05_structures/Set.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +45,7 @@
     "Application.List.executor": "Run",
     "Application.Operators.executor": "Run",
     "Application.OperatorsExercises.executor": "Run",
+    "Application.Set.executor": "Run",
     "Application.Strings.executor": "Run",
     "Application.StringsExercises.executor": "Run",
     "Application.VariableAndConstants.executor": "Run",
@@ -58,7 +59,7 @@
     "settings.editor.selected.configurable": "editor.preferences.folding"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.List">
+  <component name="RunManager" selected="Application.Set">
     <configuration name="Arrays" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="c05_structures.Arrays" />
       <module name="HolaMundo" />
@@ -111,12 +112,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StringsExercises" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="c03_strings.StringsExercises" />
+    <configuration name="Set" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="c05_structures.Set" />
       <module name="HolaMundo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="c03_strings.*" />
+          <option name="PATTERN" value="c05_structures.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -126,11 +127,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Set" />
         <item itemvalue="Application.List" />
         <item itemvalue="Application.Arrays" />
         <item itemvalue="Application.ConditionalsExercises" />
         <item itemvalue="Application.Conditionals" />
-        <item itemvalue="Application.StringsExercises" />
       </list>
     </recent_temporary>
   </component>
