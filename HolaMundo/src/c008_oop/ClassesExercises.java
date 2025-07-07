@@ -32,7 +32,7 @@ public class ClassesExercises {
     System.out.println(student2.approve());
 
     // 6. Crea una clase BankAccount con atributo balance y un método deposit() que sume el saldo.
-    var cuenta = new BankAccount(200);
+    var cuenta = new BankAccount("abc9090", 200, 22);
     cuenta.deposit();
     cuenta.balance = 500;
     cuenta.deposit();
