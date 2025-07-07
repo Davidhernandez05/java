@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e54ac83c-5125-46aa-9203-246255656d05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/c07_Functions/FunctionsExercises.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/Classes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/c07_Functions/FunctionsExercises.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/c07_Functions/FunctionsExercises.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +39,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Arrays.executor": "Run",
+    "Application.Classes.executor": "Run",
     "Application.Conditionals.executor": "Run",
     "Application.ConditionalsExercises.executor": "Run",
     "Application.DataType.executor": "Run",
@@ -66,13 +69,13 @@
     "settings.editor.selected.configurable": "editor.preferences.folding"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.FunctionsExercises">
-    <configuration name="Exercises" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="c05_structures.Exercises" />
+  <component name="RunManager" selected="Application.Classes">
+    <configuration name="Classes" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="c008_oop.Classes" />
       <module name="HolaMundo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="c05_structures.*" />
+          <option name="PATTERN" value="c008_oop.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -134,11 +137,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Classes" />
         <item itemvalue="Application.FunctionsExercises" />
         <item itemvalue="Application.Functions" />
         <item itemvalue="Application.LoopsExercises" />
         <item itemvalue="Application.Loops" />
-        <item itemvalue="Application.Exercises" />
       </list>
     </recent_temporary>
   </component>

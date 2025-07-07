@@ -135,7 +135,7 @@ public class FunctionsExercises {
 
   public static void recorrerLista(ArrayList<String> lista){
     for (String name : lista){
-      System.out.println(name);
+      greetPerson(name);
     }
   }
 }
