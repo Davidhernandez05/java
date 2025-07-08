@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e54ac83c-5125-46aa-9203-246255656d05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/c008_oop/Abstraction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/Composition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/c008_oop/Inheritance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/c008_oop/Inheritance.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +42,7 @@
     "Application.Arrays.executor": "Run",
     "Application.Classes.executor": "Run",
     "Application.ClassesExercises.executor": "Run",
+    "Application.Composition.executor": "Run",
     "Application.Conditionals.executor": "Run",
     "Application.ConditionalsExercises.executor": "Run",
     "Application.DataType.executor": "Run",
@@ -72,7 +74,7 @@
     "settings.editor.selected.configurable": "editor.preferences.folding"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Abstraction">
+  <component name="RunManager" selected="Application.Composition">
     <configuration name="Abstraction" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="c008_oop.Abstraction" />
       <module name="HolaMundo" />
@@ -99,8 +101,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClassesExercises" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="c008_oop.ClassesExercises" />
+    <configuration name="Composition" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="c008_oop.Composition" />
       <module name="HolaMundo" />
       <extension name="coverage">
         <pattern>
@@ -140,11 +142,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Composition" />
         <item itemvalue="Application.Abstraction" />
         <item itemvalue="Application.Polymorphism" />
         <item itemvalue="Application.Inheritance" />
         <item itemvalue="Application.AccessModifiers" />
-        <item itemvalue="Application.ClassesExercises" />
       </list>
     </recent_temporary>
   </component>

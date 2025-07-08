@@ -4,7 +4,7 @@ import c008_oop.Exercisses.Car;
 
 public class Inheritance {
   public static void main(String[] args) {
-    //Herencia:
+    //Herencia: Se podría decir como (Es un): ejemplo el perro es un animal.
     var animal = new Animal("Samy");
     animal.eat();
 
