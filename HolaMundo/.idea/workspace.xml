@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e54ac83c-5125-46aa-9203-246255656d05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/c008_oop/Composition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/AccessExercises/BankAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/AccessExercises/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/AccessExercises/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/AccessExercises/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/AccessExercises/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/AccessExercises/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/AccessExercises/Rectangle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/AccessExercises/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/AccessExercises/Temperature.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/AccessExercises/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/AccessModifiersExercises.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/c008_oop/Inheritance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/c008_oop/Inheritance.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +48,7 @@
   "keyToString": {
     "Application.Abstraction.executor": "Run",
     "Application.AccessModifiers.executor": "Run",
+    "Application.AccessModifiersExercises.executor": "Run",
     "Application.Arrays.executor": "Run",
     "Application.Classes.executor": "Run",
     "Application.ClassesExercises.executor": "Run",
@@ -74,7 +84,7 @@
     "settings.editor.selected.configurable": "editor.preferences.folding"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Composition">
+  <component name="RunManager" selected="Application.AccessModifiersExercises">
     <configuration name="Abstraction" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="c008_oop.Abstraction" />
       <module name="HolaMundo" />
@@ -88,8 +98,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AccessModifiers" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="c008_oop.AccessModifiers" />
+    <configuration name="AccessModifiersExercises" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="c008_oop.AccessModifiersExercises" />
       <module name="HolaMundo" />
       <extension name="coverage">
         <pattern>
@@ -142,11 +152,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AccessModifiersExercises" />
         <item itemvalue="Application.Composition" />
         <item itemvalue="Application.Abstraction" />
         <item itemvalue="Application.Polymorphism" />
         <item itemvalue="Application.Inheritance" />
-        <item itemvalue="Application.AccessModifiers" />
       </list>
     </recent_temporary>
   </component>
