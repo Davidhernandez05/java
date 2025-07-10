@@ -5,11 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e54ac83c-5125-46aa-9203-246255656d05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/c09_Exceptions/CustomException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/c09_Exceptions/Exceptions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/c09_Exceptions/ThrowExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/c10_Extras/Extras.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/c10_Extras/ExtrasExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/HerenciaEjercicios.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/InheritanceExercises/Animal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/InheritanceExercises/Auto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/InheritanceExercises/Bike.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/InheritanceExercises/Bird.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/InheritanceExercises/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/InheritanceExercises/Cat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/InheritanceExercises/Circle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/InheritanceExercises/Device.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/InheritanceExercises/Dog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/InheritanceExercises/Eagle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/InheritanceExercises/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/InheritanceExercises/Manager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/InheritanceExercises/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/InheritanceExercises/Phone.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/InheritanceExercises/Rectangle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/InheritanceExercises/SavingsAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/InheritanceExercises/Shape.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/InheritanceExercises/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/InheritanceExercises/Truck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/InheritanceExercises/Vehicle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,6 +73,7 @@
     "Application.FunctionsExercises.executor": "Run",
     "Application.FuntionsExercises.executor": "Run",
     "Application.HelloWordExercises.executor": "Run",
+    "Application.HerenciaEjercicios.executor": "Run",
     "Application.HolaMundo.executor": "Run",
     "Application.Inheritance.executor": "Run",
     "Application.List.executor": "Run",
@@ -81,22 +98,9 @@
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Extras">
+  <component name="RunManager" selected="Application.HerenciaEjercicios">
     <configuration name="AccessModifiersExercises" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="c008_oop.AccessModifiersExercises" />
-      <module name="HolaMundo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="c008_oop.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Composition" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="c008_oop.Composition" />
       <module name="HolaMundo" />
       <extension name="coverage">
         <pattern>
@@ -134,6 +138,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HerenciaEjercicios" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="c008_oop.HerenciaEjercicios" />
+      <module name="HolaMundo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="c008_oop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ThrowExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="c09_Exceptions.ThrowExample" />
       <module name="HolaMundo" />
@@ -149,11 +166,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HerenciaEjercicios" />
         <item itemvalue="Application.Extras" />
         <item itemvalue="Application.Exceptions" />
         <item itemvalue="Application.ThrowExample" />
         <item itemvalue="Application.AccessModifiersExercises" />
-        <item itemvalue="Application.Composition" />
       </list>
     </recent_temporary>
   </component>
