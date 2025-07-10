@@ -15,6 +15,15 @@ import c008_oop.PolimorfismoExe.E05.Truck;
 import c008_oop.PolimorfismoExe.E05.Vehicule;
 import c008_oop.PolimorfismoExe.E06.EmailNotification;
 import c008_oop.PolimorfismoExe.E06.SMSNotification;
+import c008_oop.PolimorfismoExe.E07.Horse;
+import c008_oop.PolimorfismoExe.E08.Converter;
+import c008_oop.PolimorfismoExe.E09.Book;
+import c008_oop.PolimorfismoExe.E09.Electronic;
+import c008_oop.PolimorfismoExe.E09.Product;
+import c008_oop.PolimorfismoExe.E10.Archer;
+import c008_oop.PolimorfismoExe.E10.Character;
+import c008_oop.PolimorfismoExe.E10.Mage;
+import c008_oop.PolimorfismoExe.E10.Warrior;
 
 import java.util.ArrayList;
 
@@ -76,11 +85,43 @@ public class PolimorfismoExercises {
     mensajeSMS.sendNotification(312091310);
 
     // 7. Crea una función showAnimalType(Animal animal) que imprima el tipo de animal. Pasa diferentes subclases (Dog, Cat, Horse) para que cada una imprima su tipo con su propio getType() sobrescrito.
+    var cat = new c008_oop.PolimorfismoExe.E07.Cat();
+    var dog = new c008_oop.PolimorfismoExe.E07.Dog();
+    var horse = new Horse();
+
+    cat.showAnimalType("Felino");
+    dog.showAnimalType("Canino");
+    horse.showAnimalType("Équinos");
 
     // 8. Crea una clase Converter con métodos convert(int), convert(double), y convert(String) que devuelvan diferentes formatos de texto.
+    var aInt = new Converter();
+    var aDouble = new Converter();
+    var aString = new Converter();
+
+    System.out.println(aInt.convert(3.14));
+    System.out.println(aDouble.convert("3.19"));
+    System.out.println(aString.convert(12));
+
 
     // 9. Crea una clase Product con el método getPrice(). Luego, Book y Electronic deben sobrescribirlo con su propia lógica de descuento. Recorre una lista de Product e imprime el precio final de cada uno.
+    var productList = new ArrayList<Product>();
+    productList.add(new Book(100, "Después"));
+    productList.add(new Book(90, "Aquelarre"));
+    productList.add(new Electronic(1000, "Nevera"));
+    productList.add(new Electronic(900, "Lavadora"));
 
+    for (Product producto : productList) {
+      System.out.println("Precio Final: " + producto.getPrice(20));
+    }
     // 10. Crea una clase Character con método attack(). Luego crea subclases Warrior, Archer, Mage con ataques diferentes. En main, crea un array de Character y llama a attack() para cada uno.
+    var attackList = new ArrayList<Character>();
+    attackList.add(new Warrior());
+    attackList.add(new Mage());
+    attackList.add(new Archer());
+    attackList.add(new Mage());
+
+    for (Character ataque : attackList) {
+      ataque.attack();
+    }
   }
 }
