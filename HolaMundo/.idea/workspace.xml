@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e54ac83c-5125-46aa-9203-246255656d05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E01/Animal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E01/Cat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E01/Cow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E01/Dog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E02/Circule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E02/Rectangle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E02/Shape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E03/Printer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E04/Greeter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E05/Bike.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E05/Car.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E05/Truck.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E05/Vehicule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExercises.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e54ac83c-5125-46aa-9203-246255656d05" name="Changes" comment="Merge remote-tracking branch 'origin/master' into ejercicios_practica_POO&#10;&#10;# Conflicts:&#10;#&#9;HolaMundo/.idea/workspace.xml" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,51 +31,51 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Abstraction.executor": "Run",
-    "Application.AccessModifiers.executor": "Run",
-    "Application.AccessModifiersExercises.executor": "Run",
-    "Application.Arrays.executor": "Run",
-    "Application.Classes.executor": "Run",
-    "Application.ClassesExercises.executor": "Run",
-    "Application.Composition.executor": "Run",
-    "Application.Conditionals.executor": "Run",
-    "Application.ConditionalsExercises.executor": "Run",
-    "Application.DataType.executor": "Run",
-    "Application.Exceptions.executor": "Run",
-    "Application.Exercises.executor": "Run",
-    "Application.Extras.executor": "Run",
-    "Application.Functions.executor": "Run",
-    "Application.FunctionsExercises.executor": "Run",
-    "Application.FuntionsExercises.executor": "Run",
-    "Application.HelloWordExercises.executor": "Run",
-    "Application.HerenciaEjercicios.executor": "Run",
-    "Application.HolaMundo.executor": "Run",
-    "Application.Inheritance.executor": "Run",
-    "Application.List.executor": "Run",
-    "Application.Loops.executor": "Run",
-    "Application.LoopsExercises.executor": "Run",
-    "Application.Maps.executor": "Run",
-    "Application.Operators.executor": "Run",
-    "Application.OperatorsExercises.executor": "Run",
-    "Application.PolimorfismoExercises.executor": "Run",
-    "Application.Polymorphism.executor": "Run",
-    "Application.Set.executor": "Run",
-    "Application.Strings.executor": "Run",
-    "Application.StringsExercises.executor": "Run",
-    "Application.ThrowExample.executor": "Run",
-    "Application.VariableAndConstants.executor": "Run",
-    "Application.VariableAndDataTypeExersices.executor": "Run",
-    "Application.operators.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "onboarding.tips.debug.path": "/Users/davidhernandez/Desarrollo/curso-java/HolaMundo/src/Main.java",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Abstraction.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AccessModifiers.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AccessModifiersExercises.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Arrays.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Classes.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ClassesExercises.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Composition.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Conditionals.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ConditionalsExercises.executor&quot;: &quot;Run&quot;,
+    &quot;Application.DataType.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Exceptions.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Exercises.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Extras.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Functions.executor&quot;: &quot;Run&quot;,
+    &quot;Application.FunctionsExercises.executor&quot;: &quot;Run&quot;,
+    &quot;Application.FuntionsExercises.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloWordExercises.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HerenciaEjercicios.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HolaMundo.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Inheritance.executor&quot;: &quot;Run&quot;,
+    &quot;Application.List.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Loops.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LoopsExercises.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Maps.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Operators.executor&quot;: &quot;Run&quot;,
+    &quot;Application.OperatorsExercises.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PolimorfismoExercises.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Polymorphism.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Set.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Strings.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StringsExercises.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ThrowExample.executor&quot;: &quot;Run&quot;,
+    &quot;Application.VariableAndConstants.executor&quot;: &quot;Run&quot;,
+    &quot;Application.VariableAndDataTypeExersices.executor&quot;: &quot;Run&quot;,
+    &quot;Application.operators.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/davidhernandez/Desarrollo/curso-java/HolaMundo/src/Main.java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.PolimorfismoExercises">
     <configuration name="Exceptions" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="c09_Exceptions.Exceptions" />
