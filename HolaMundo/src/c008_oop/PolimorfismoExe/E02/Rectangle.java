@@ -1,6 +1,4 @@
-package c008_oop.PolimorfismoExe;
-
-import java.awt.geom.Area;
+package c008_oop.PolimorfismoExe.E02;
 
 public class Rectangle extends Shape{
 

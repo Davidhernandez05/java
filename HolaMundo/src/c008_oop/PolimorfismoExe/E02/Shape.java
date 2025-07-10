@@ -1,6 +1,6 @@
-package c008_oop.PolimorfismoExe;
+package c008_oop.PolimorfismoExe.E02;
 
-public abstract class Shape {
+public class Shape {
 
   public void calculateArea(){
     System.out.println("Calculando el area de la figura...");
