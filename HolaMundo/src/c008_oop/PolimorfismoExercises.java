@@ -13,6 +13,8 @@ import c008_oop.PolimorfismoExe.E05.Bike;
 import c008_oop.PolimorfismoExe.E05.Car;
 import c008_oop.PolimorfismoExe.E05.Truck;
 import c008_oop.PolimorfismoExe.E05.Vehicule;
+import c008_oop.PolimorfismoExe.E06.EmailNotification;
+import c008_oop.PolimorfismoExe.E06.SMSNotification;
 
 import java.util.ArrayList;
 
@@ -68,6 +70,10 @@ public class PolimorfismoExercises {
     }
 
     // 6. Crea una clase Notification con método send(), y subclases EmailNotification, SMSNotification. Luego crea una función sendNotification(Notification n) que reciba cualquier tipo y lo ejecute.
+    var mensajeEmail = new EmailNotification();
+    mensajeEmail.sendNotification("david@gmail.com");
+    var mensajeSMS = new SMSNotification();
+    mensajeSMS.sendNotification(312091310);
 
     // 7. Crea una función showAnimalType(Animal animal) que imprima el tipo de animal. Pasa diferentes subclases (Dog, Cat, Horse) para que cada una imprima su tipo con su propio getType() sobrescrito.
 
