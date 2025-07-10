@@ -4,7 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="e54ac83c-5125-46aa-9203-246255656d05" name="Changes" comment="" />
+=======
+    <list default="true" id="e54ac83c-5125-46aa-9203-246255656d05" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E01/Animal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E01/Cat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E01/Cow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E01/Dog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E02/Circule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E02/Rectangle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E02/Shape.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E03/Printer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E04/Greeter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E05/Bike.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E05/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E05/Truck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExe/E05/Vehicule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/c008_oop/PolimorfismoExercises.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+>>>>>>> origin/master
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,11 +63,14 @@
     "Application.Conditionals.executor": "Run",
     "Application.ConditionalsExercises.executor": "Run",
     "Application.DataType.executor": "Run",
+    "Application.Exceptions.executor": "Run",
     "Application.Exercises.executor": "Run",
+    "Application.Extras.executor": "Run",
     "Application.Functions.executor": "Run",
     "Application.FunctionsExercises.executor": "Run",
     "Application.FuntionsExercises.executor": "Run",
     "Application.HelloWordExercises.executor": "Run",
+    "Application.HerenciaEjercicios.executor": "Run",
     "Application.HolaMundo.executor": "Run",
     "Application.Inheritance.executor": "Run",
     "Application.List.executor": "Run",
@@ -56,10 +79,12 @@
     "Application.Maps.executor": "Run",
     "Application.Operators.executor": "Run",
     "Application.OperatorsExercises.executor": "Run",
+    "Application.PolimorfismoExercises.executor": "Run",
     "Application.Polymorphism.executor": "Run",
     "Application.Set.executor": "Run",
     "Application.Strings.executor": "Run",
     "Application.StringsExercises.executor": "Run",
+    "Application.ThrowExample.executor": "Run",
     "Application.VariableAndConstants.executor": "Run",
     "Application.VariableAndDataTypeExersices.executor": "Run",
     "Application.operators.executor": "Run",
@@ -68,12 +93,38 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "ejercicios__practica__POO",
     "onboarding.tips.debug.path": "/Users/davidhernandez/Desarrollo/curso-java/HolaMundo/src/Main.java",
-    "settings.editor.selected.configurable": "editor.preferences.folding"
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.AccessModifiersExercises">
-    <configuration name="Abstraction" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="c008_oop.Abstraction" />
+  <component name="RunManager" selected="Application.PolimorfismoExercises">
+    <configuration name="Exceptions" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="c09_Exceptions.Exceptions" />
+      <module name="HolaMundo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="c09_Exceptions.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Extras" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="c10_Extras.Extras" />
+      <module name="HolaMundo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="c10_Extras.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HerenciaEjercicios" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="c008_oop.HerenciaEjercicios" />
       <module name="HolaMundo" />
       <extension name="coverage">
         <pattern>
@@ -85,8 +136,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AccessModifiersExercises" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="c008_oop.AccessModifiersExercises" />
+    <configuration name="PolimorfismoExercises" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="c008_oop.PolimorfismoExercises" />
       <module name="HolaMundo" />
       <extension name="coverage">
         <pattern>
@@ -98,38 +149,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Composition" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="c008_oop.Composition" />
+    <configuration name="ThrowExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="c09_Exceptions.ThrowExample" />
       <module name="HolaMundo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="c008_oop.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Inheritance" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="c008_oop.Inheritance" />
-      <module name="HolaMundo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="c008_oop.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Polymorphism" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="c008_oop.Polymorphism" />
-      <module name="HolaMundo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="c008_oop.*" />
+          <option name="PATTERN" value="c09_Exceptions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -139,11 +164,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AccessModifiersExercises" />
-        <item itemvalue="Application.Composition" />
-        <item itemvalue="Application.Abstraction" />
-        <item itemvalue="Application.Polymorphism" />
-        <item itemvalue="Application.Inheritance" />
+        <item itemvalue="Application.PolimorfismoExercises" />
+        <item itemvalue="Application.HerenciaEjercicios" />
+        <item itemvalue="Application.Extras" />
+        <item itemvalue="Application.Exceptions" />
+        <item itemvalue="Application.ThrowExample" />
       </list>
     </recent_temporary>
   </component>
