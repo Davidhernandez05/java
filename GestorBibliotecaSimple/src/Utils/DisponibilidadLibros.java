@@ -40,7 +40,7 @@ public class DisponibilidadLibros {
     }
   }
 
-  public static boolean regresarLibro() {
+  public static boolean returnBook() {
     var listaLibros = ValidarLibros.listaLibros;
     var listaUsuarios = ValidarUsuarios.listaUsuarios;
 
@@ -62,7 +62,7 @@ public class DisponibilidadLibros {
             prestamos.getTittleBook().toLowerCase().trim().equals(tittleBook.toLowerCase().trim())) {
 
           if (!prestamos.isDisponibilidad()) {
-            prestamos.setDisponibilidad(true);
+            listaBiblioteca.remove(prestamos.getId());
             for (Libros libro : listaLibros) {
               if (libro.getTitle().toLowerCase().equals(tittleBook.toLowerCase().trim())) {
                 libro.setDisponibilidad(true);
@@ -70,11 +70,39 @@ public class DisponibilidadLibros {
               }
             }
           }
-
         }
       }
     }
     return false;
   }
 
+  public static void returnBookValidation() {
+    var regreso = returnBook();
+
+    if (regreso) {
+      System.out.println("El libro se regreso correctamente. \nLibro disponible en el sistema.");
+    }else {
+      System.out.println("El libro no se regreso correctamente intentalo nuevamente.");
+    }
+  }
+
+
+  public static void librosDisponibles() {
+    var listaLibros = ValidarLibros.listaLibros;
+
+    System.out.println("Libros disponibles en este momento:");
+    for (Libros libro : listaLibros) {
+      if (libro.isDisponibilidad()) {
+        System.out.println(libro.getTitle());
+      }
+    }
+  }
+
+  public static void librosNoDisponibles() {
+
+    System.out.println("Libros prestados: ");
+    for (Biblioteca libro : listaBiblioteca) {
+      System.out.println(String.format("El libro: %s, lo tiene: %s, disponibilidad en este momento: %b", libro.getTittleBook(), libro.getUserSeparation(), libro.isDisponibilidad()));
+    }
+  }
 }

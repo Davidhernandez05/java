@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class ValidarLibros {
 
   static ArrayList<Libros> listaLibros = new ArrayList<Libros>();
-  public static void AgregarLibro() {
 
+  public static void AgregarLibro() {
 
     var sc = new Scanner(System.in);
     System.out.print("Ingresa el titulo del libro: ");
@@ -46,5 +46,16 @@ public class ValidarLibros {
       }
     }
     return false;
+  }
+
+  public static void existenciaLibro() {
+    String nombre = SolicitarNombreLibro.nombreLibro();
+    var existe = buscarLibro(nombre);
+
+    if (existe) {
+      System.out.println("El libro si se encuentra en nuestra Base de Datos.");
+    }else {
+      System.out.println("El libro no se encuentra en nuestra Base de Datos.");
+    }
   }
 }

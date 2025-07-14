@@ -1,7 +1,9 @@
 package Clases;
 
 public class Biblioteca {
+  private static int contador;
 
+  private int id;
   private String userSeparation;
   private String tittleBook;
   private boolean disponibilidad;
@@ -9,6 +11,7 @@ public class Biblioteca {
 
   // Constructores:
   public Biblioteca(String userSeparation, String tittleBook, boolean disponibilidad) {
+    this.id = ++contador;
     this.setTittleBook(tittleBook);
     this.setUserSeparation(userSeparation);
 
@@ -18,6 +21,7 @@ public class Biblioteca {
   public String getUserSeparation() { return userSeparation; }
   public String getTittleBook() { return tittleBook;  }
   public boolean isDisponibilidad() { return disponibilidad;  }
+  public int getId() {  return id;  }
 
   //setters
   public void setUserSeparation(String userSeparation) {  this.userSeparation = userSeparation; }

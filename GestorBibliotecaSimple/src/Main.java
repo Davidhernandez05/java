@@ -1,5 +1,6 @@
 import Clases.Libros;
 import Utils.DisponibilidadLibros;
+import Utils.SolicitarNombreLibro;
 import Utils.ValidarLibros;
 import Utils.ValidarUsuarios;
 
@@ -17,42 +18,36 @@ public class Main {
       int opc = menu();
 
       if (opc == 1) {
-        ValidarLibros.AgregarLibro();
-      } else if (opc == 2) {
-        ValidarLibros.ListarLibros();
-      } else if (opc == 3) {
         ValidarUsuarios.AgregarUsuario();
-      } else if (opc == 4) {
+
+      } else if (opc == 2) {
         ValidarUsuarios.listarUsuarios();
+
+      } else if (opc == 3) {
+        ValidarLibros.AgregarLibro();
+
+      } else if (opc == 4) {
+        ValidarLibros.ListarLibros();
+
       } else if (opc == 5) {
+        ValidarLibros.existenciaLibro();
 
-        var sc = new Scanner(System.in);
-        System.out.print("Ingresa el nombre del libro que quieres buscar: ");
-        String nombre = sc.nextLine();
-
-        var existe = ValidarLibros.buscarLibro(nombre);
-        if (existe) {
-          System.out.println("El libro si se encuentra en nuestra Base de Datos.");
-        }else {
-          System.out.println("El libro no se encuentra en nuestra Base de Datos.");
-        }
       } else if (opc == 6) {
-        var sc = new Scanner(System.in);
-        System.out.print("Ingresa el nombre del libro que quieres Solicitar: ");
-        String name = sc.nextLine();
+        String name = SolicitarNombreLibro.nombreLibro();
         DisponibilidadLibros.pedirLibro(name);
 
       } else if (opc == 7) {
-        var regreso = DisponibilidadLibros.regresarLibro();
+        DisponibilidadLibros.returnBookValidation();
 
-        if (regreso) {
-          System.out.println("El libro se regreso correctamente. \nLibro disponible en el sistema.");
-        }else {
-          System.out.println("El libro no se regreso correctamente intentalo nuevamente.");
-        }
-      }
-      if (opc == 8) {
+      } else if (opc == 8) {
+        DisponibilidadLibros.librosDisponibles();
+
+      } else if (opc == 9) {
+        DisponibilidadLibros.librosNoDisponibles();
+
+      } else if (opc == 10) {
         break;
+
       } else {
         System.out.println("Opción no valida intenta nuevamente.");
       }
