@@ -43,6 +43,15 @@ public class Main {
         DisponibilidadLibros.pedirLibro(name);
 
       } else if (opc == 7) {
+        var regreso = DisponibilidadLibros.regresarLibro();
+
+        if (regreso) {
+          System.out.println("El libro se regreso correctamente. \nLibro disponible en el sistema.");
+        }else {
+          System.out.println("El libro no se regreso correctamente intentalo nuevamente.");
+        }
+      }
+      if (opc == 8) {
         break;
       } else {
         System.out.println("Opción no valida intenta nuevamente.");

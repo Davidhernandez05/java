@@ -17,7 +17,7 @@ public class DisponibilidadLibros {
     for (Libros libro : listaLibros) {
       if (libro.getTitle().toLowerCase().trim().equals(name.toLowerCase()) && libro.isDisponibilidad()) {
         var sc = new Scanner(System.in);
-        System.out.println("Deseas separar (Si, No) el libro: ");
+        System.out.print("Deseas separar (Si, No) el libro: ");
         var separar = sc.nextLine();
 
         if (separar.toLowerCase().trim().equals("si")) {
@@ -26,19 +26,55 @@ public class DisponibilidadLibros {
           var emailUser = sc.nextLine();
 
           for (Usuarios usuario : listaUsuarios) {
-            if (usuario.getEmail().toLowerCase().trim().equals(emailUser)) {
+            if (usuario.getEmail().toLowerCase().trim().equals(emailUser.toLowerCase().trim())) {
               System.out.println("El libro se separo por lo cual ya no se encuentra disponible en el sistema.");
               libro.setDisponibilidad(false);
-              listaBiblioteca.add(new Biblioteca(usuario.getName(), libro.getTitle(), libro.isDisponibilidad()));
+              listaBiblioteca.add(new Biblioteca(usuario.getEmail(), libro.getTitle(), libro.isDisponibilidad()));
+              System.out.println(String.format("El usuario: %s, Tiene el libro: %s", usuario.getName(), libro.getTitle()));
+              break;
             }
           }
           break;
         }
-      }else {
-        System.out.println("El libro ingresado no se encuentra disponible.");
       }
     }
   }
 
+  public static boolean regresarLibro() {
+    var listaLibros = ValidarLibros.listaLibros;
+    var listaUsuarios = ValidarUsuarios.listaUsuarios;
+
+    var sc = new Scanner(System.in);
+    System.out.print("Deseas regresar un libro(Si, No): ");
+    var regresar = sc.nextLine();
+
+    if (regresar.toLowerCase().trim().equals("si")) {
+      sc = new Scanner(System.in);
+      System.out.print("Ingresa tu Email: ");
+      var name = sc.nextLine();
+
+      sc = new Scanner(System.in);
+      System.out.print("Ingresa el nombre del libro que quieres regresar: ");
+      var tittleBook = sc.nextLine();
+
+      for (Biblioteca prestamos : listaBiblioteca) {
+        if (prestamos.getUserSeparation().toLowerCase().trim().equals(name.toLowerCase().trim()) &&
+            prestamos.getTittleBook().toLowerCase().trim().equals(tittleBook.toLowerCase().trim())) {
+
+          if (!prestamos.isDisponibilidad()) {
+            prestamos.setDisponibilidad(true);
+            for (Libros libro : listaLibros) {
+              if (libro.getTitle().toLowerCase().equals(tittleBook.toLowerCase().trim())) {
+                libro.setDisponibilidad(true);
+                return true;
+              }
+            }
+          }
+
+        }
+      }
+    }
+    return false;
+  }
 
 }
