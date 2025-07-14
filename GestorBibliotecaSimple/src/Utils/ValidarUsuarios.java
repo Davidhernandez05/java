@@ -1,5 +1,6 @@
 package Utils;
 
+import Clases.Biblioteca;
 import Clases.Libros;
 import Clases.Usuarios;
 
@@ -9,6 +10,7 @@ import java.util.Scanner;
 public class ValidarUsuarios {
 
   static ArrayList<Usuarios> listaUsuarios = new ArrayList<Usuarios>();
+  static ArrayList<Biblioteca> listaBiblioteca = new ArrayList<>();
 
   public static void AgregarUsuario() {
     var sc = new Scanner(System.in);
@@ -24,8 +26,22 @@ public class ValidarUsuarios {
   }
 
   public static void listarUsuarios() {
+    System.out.println("Lista de usuarios: ");
     for (Usuarios usuario : listaUsuarios) {
-      System.out.println(usuario.getName());
+      System.out.println(String.format("ID: %d, Usuario: %s", usuario.getId(), usuario.getName()));
     }
+  }
+
+  public static boolean buscarUsuario() {
+    var sc = new Scanner(System.in);
+    System.out.print("Ingresa el email del usuario que vas a buscar: ");
+    var emailUser = sc.nextLine();
+
+    for (Usuarios usuario : listaUsuarios) {
+      if (usuario.getEmail().toLowerCase().trim().equals(emailUser)) {
+        return true;
+      }
+    }
+    return false;
   }
 }

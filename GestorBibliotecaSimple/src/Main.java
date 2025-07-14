@@ -1,8 +1,10 @@
 import Clases.Libros;
+import Utils.DisponibilidadLibros;
 import Utils.ValidarLibros;
 import Utils.ValidarUsuarios;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import static Utils.Menu.menu;
 
@@ -23,12 +25,23 @@ public class Main {
       } else if (opc == 4) {
         ValidarUsuarios.listarUsuarios();
       } else if (opc == 5) {
-        var existe = ValidarLibros.buscarLibro();
+
+        var sc = new Scanner(System.in);
+        System.out.print("Ingresa el nombre del libro que quieres buscar: ");
+        String nombre = sc.nextLine();
+
+        var existe = ValidarLibros.buscarLibro(nombre);
         if (existe) {
           System.out.println("El libro si se encuentra en nuestra Base de Datos.");
         }else {
           System.out.println("El libro no se encuentra en nuestra Base de Datos.");
         }
+      } else if (opc == 6) {
+        var sc = new Scanner(System.in);
+        System.out.print("Ingresa el nombre del libro que quieres Solicitar: ");
+        String name = sc.nextLine();
+        DisponibilidadLibros.pedirLibro(name);
+
       } else if (opc == 7) {
         break;
       } else {

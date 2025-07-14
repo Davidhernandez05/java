@@ -9,7 +9,7 @@ public class Libros {
   private int year;
   private boolean disponibilidad;
 
-  public Libros(String title, String author, int year, Boolean disponibilidad) {
+  public Libros(String title, String author, int year, boolean disponibilidad) {
     this.id = ++contador;
     this.setTitle(title);
     this.setAuthor(author);
@@ -17,6 +17,11 @@ public class Libros {
     this.setDisponibilidad(disponibilidad);
   }
 
+  public Libros() {
+    id = 0;
+  }
+
+  //Getters
   public String getTitle() {
     return title;
   }
@@ -26,9 +31,11 @@ public class Libros {
   public String getAuthor() {
     return author;
   }
-  public Boolean getDisponibilidad() { return disponibilidad; }
   public int getId() {  return id;  }
 
+  public boolean isDisponibilidad() { return disponibilidad;  }
+
+  //Setters
   public void setAuthor(String author) {
     this.author = author;
   }
@@ -36,6 +43,7 @@ public class Libros {
   public void setYear(int year) {
     this.year = year;
   }
+
   public void setDisponibilidad(boolean disponibilidad) { this.disponibilidad = disponibilidad; }
 }
 

@@ -1,6 +1,6 @@
 package Clases;
 
-public class Usuarios {
+public class Usuarios extends Libros {
   private static int contador = 0;
 
   private final int id;
@@ -12,6 +12,8 @@ public class Usuarios {
     this.setName(name);
     this.setEmail(email);
   }
+
+
 
   public int getId() {  return id;  }
   public String getName() {

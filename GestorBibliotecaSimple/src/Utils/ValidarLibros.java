@@ -32,19 +32,16 @@ public class ValidarLibros {
   }
 
   public static void ListarLibros() {
+    System.out.println("Lista de libros: ");
     for (Libros libro : listaLibros) {
-      System.out.println(String.format("ID: %d Libro: %s, Autor: %s", libro.getId(), libro.getTitle(), libro.getAuthor()));
+      System.out.println(String.format("ID: %d Libro: %s, Autor: %s, Disponibilidad: %b", libro.getId(), libro.getTitle(), libro.getAuthor(), libro.isDisponibilidad()));
     }
   }
 
-  public static boolean buscarLibro() {
-
-    var sc = new Scanner(System.in);
-    System.out.print("Ingresa el nombre del libro que quieres buscar: ");
-    String nombre = sc.nextLine();
+  public static boolean buscarLibro(String nombre) {
 
     for (Libros libro : listaLibros) {
-      if (libro.getTitle().toLowerCase().trim().equals(nombre.toLowerCase().trim())) {
+      if (libro.getTitle().toLowerCase().trim().equals(nombre.toLowerCase())) {
         return true;
       }
     }
