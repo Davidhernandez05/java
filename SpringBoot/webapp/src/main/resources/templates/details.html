@@ -11,6 +11,8 @@
     <ul>
         <li th:text="${name}"></li>
         <li th:text="${lastname}"></li>
+        <li th:if="${email != nul}" th:text="${email}"></li> <!-- Aquí le decimos que nos oculte el campo si el correo es null -->
+        <li th:if="${email == nul}" th:text="${'No tiene Email'}"></li> <!-- Aquí le decimos que si el correo es null nos muestre no tiene Email.-->
     </ul>
 </body>
 </html>
