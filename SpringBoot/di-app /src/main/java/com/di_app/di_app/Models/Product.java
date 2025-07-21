@@ -1,7 +1,7 @@
 package com.di_app.di_app.Models;
 
 
-public class Product {
+public class Product implements Cloneable {
 
   private long id;
   private String name;
@@ -27,4 +27,13 @@ public class Product {
   public void setId(Long id) {  this.id = id; }
   public void setName(String name) {  this.name = name; }
   public void setPrice(Long price) { this.price = price; }
+
+  @Override
+  public Object clone() {
+    try {
+      return super.clone();
+    }catch (CloneNotSupportedException e) {
+      return new Product(id, name, price);
+    }
+  }
 }

@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-public class ProductRepository {
+public class ProductRepository implements IProductRepository {
   // En el repository es donde obtenemos los datos leemos los datos o guardamos los datos, los persistimos.
 
   private List<Product> data;
@@ -21,11 +21,13 @@ public class ProductRepository {
   }
 
   //Regresamos todos los productos que se encuentran en nuestra lista.
+  @Override
   public List<Product> findAll() {
     return data;
   }
 
   //Buscamos un producto por el ID.
+  @Override
   public Product findId(Long id) {
     return data.stream()
         .filter(product -> product.getId().equals(id))
