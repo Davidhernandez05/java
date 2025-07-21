@@ -1,11 +1,13 @@
 package com.di_app.di_app.Repositories;
 
 import com.di_app.di_app.Models.Product;
+import org.springframework.stereotype.Repository;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
+
+@Repository // Se utiliza cuando trabajamos con los datos, ejemplo Bases de datos SQL y no SQL, etc.
 public class ProductRepository implements IProductRepository {
   // En el repository es donde obtenemos los datos leemos los datos o guardamos los datos, los persistimos.
 
