@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 import java.util.Arrays;
 import java.util.List;
 
-
-@Repository // Se utiliza cuando trabajamos con los datos, ejemplo Bases de datos SQL y no SQL, etc.
+// Se utiliza cuando trabajamos con los datos, ejemplo Bases de datos SQL y no SQL, etc.
+@Repository //Para cambiar el nombre lógico del repo lo hacemos de la siguiente forma: @Repository("nombre") debe empezar por minúscula.
 public class ProductRepository implements IProductRepository {
   // En el repository es donde obtenemos los datos leemos los datos o guardamos los datos, los persistimos.
 

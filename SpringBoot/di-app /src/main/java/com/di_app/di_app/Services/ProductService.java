@@ -4,6 +4,7 @@ import com.di_app.di_app.Models.Product;
 import com.di_app.di_app.Repositories.IProductRepository;
 import com.di_app.di_app.Repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,10 +16,12 @@ public class ProductService implements IProductService {
   // El service es donde trabajamos con los datos.
 
   //@Autowired //Esto hace que no dependa de un new.
+  //@Qualifier("productRepository")
   private IProductRepository repository; //Inyecta por interfaz lo cual es lo mejor.
 
   // También se puede inyectar creando un constructor de IProductRepository y ya no se necesitaría el Autowired:
-  public ProductService (IProductRepository repository) {
+  public ProductService (@Qualifier("productRepository") IProductRepository repository) {
+    //@Qualifier -> Nos permite seleccionar de donde se va a inyectar aunque haya un primary.
     this.repository = repository;
   }
 
