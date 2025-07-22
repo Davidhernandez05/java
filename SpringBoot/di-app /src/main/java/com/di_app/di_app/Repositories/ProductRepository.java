@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.List;
 
 // Se utiliza cuando trabajamos con los datos, ejemplo Bases de datos SQL y no SQL, etc.
+//@RequestScope -> Funciona para que no funcione como singleton, lo que hace que por usuario se genere el código, y no se guarde en memoria.
+ //@SessionScope -> Nos crea una sesión por navegador donde se pueden ir guardando los cambios, pero cuando la sesión se cierra se eliminan dichos cambios.
 @Repository //Para cambiar el nombre lógico del repo lo hacemos de la siguiente forma: @Repository("nombre") debe empezar por minúscula.
 public class ProductRepository implements IProductRepository {
   // En el repository es donde obtenemos los datos leemos los datos o guardamos los datos, los persistimos.
