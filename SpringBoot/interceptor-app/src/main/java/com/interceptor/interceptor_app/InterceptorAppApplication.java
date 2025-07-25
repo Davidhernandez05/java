@@ -10,4 +10,5 @@ public class InterceptorAppApplication {
 		SpringApplication.run(InterceptorAppApplication.class, args);
 	}
 
+
 }
