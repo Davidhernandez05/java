@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
@@ -19,5 +20,10 @@ public class GreetingController {
   @GetMapping("/greeting")
   public ResponseEntity<?> greeting() {
     return ResponseEntity.ok(Collections.singletonMap("greeting", greetingService.sayHello("Pepe", "Hola que tal!")));
+  }
+
+  @GetMapping("/greeting-error")
+  public Map<String, String> greetingError() {
+    return Collections.singletonMap("Greeting", greetingService.sayHelloError("David", "Hola mucho gusto: "));
   }
 }
