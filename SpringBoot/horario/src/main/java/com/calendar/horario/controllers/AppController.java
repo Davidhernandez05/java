@@ -20,6 +20,6 @@ public class AppController {
     data.put("date", new Date());
     data.put("message", request.getAttribute("message")); // Agregamos el message que traemos desde calendar al JSON que vamos a mostrar al usuario.
 
-    return ResponseEntity.ok(data); //Imprimimos nuestro Map como un JSON.
+    return ResponseEntity.ok(data); //Imprimimos nuestro Map como un JSON - Esto debido a que retornamos un valor ResponseEntity.
   }
 }
