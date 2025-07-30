@@ -11,6 +11,12 @@ import java.util.Optional;
 
 public interface PersonRepository extends CrudRepository<Person, Long> {
 
+  @Query("select p.name from Person p where p.id=?1")
+  String getNameById(Long id);
+
+  @Query("select concat(p.name, ' ', p.lastname) from Person p where p.id=?1")
+  String getFullNameById(Long id);
+
   @Query("select p from Person p where p.id=?1")
   Optional<Person> findOne(Long id);
 
@@ -35,4 +41,18 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
 
   Optional<Person> findByName(String name);
   Optional<Person> findByNameContaining(String name);
+
+  @Query("select p.id, p.name, p.lastname, p.programingLanguage from Person p")
+  List<Object[]> obtenerPersonDataFull();
+
+  @Query("select p.id, p.name, p.lastname, p.programingLanguage from Person p where p.id=?1")
+  Optional<Object> obtenerPersonDataFullById(Long id);
+
+
+
+  @Query("select p, p.programingLanguage from Person p")
+  List<Object[]> findMixPersonData();
+
+  @Query("select new Person(p.name, p.lastname) from Person p") //Llamamos al constructor nuevo
+  List<Person> findAllPersonPersonalized();
 }

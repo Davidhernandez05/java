@@ -16,6 +16,8 @@ public class Person {
   @Column(name = "programing_language") //Le damos un nombre a una columna -> Solamente si se le va a cambiar el nombre o si es una palabra compuesta.
   private String programingLanguage;
 
+  //Constructors:
+
   public Person() {
     //Siempre tiene que llevar un constructor vacío.
     //Si se crea un constructor con parámetros.
@@ -26,6 +28,11 @@ public class Person {
     this.setName(name);
     this.setLastname(lastname);
     this.setProgramingLanguage(programingLanguage);
+  }
+
+  public Person (String name, String lastname) {
+    this.setName(name);
+    this.setLastname(lastname);
   }
 
   //Getters:

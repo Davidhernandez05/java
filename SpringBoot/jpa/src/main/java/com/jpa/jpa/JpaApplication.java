@@ -8,10 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Scanner;
+import java.util.*;
 
 @SpringBootApplication
 public class JpaApplication implements CommandLineRunner {
@@ -31,9 +28,10 @@ public class JpaApplication implements CommandLineRunner {
 
 		//create();
 		//update();
-		delete2();
+		//delete2();
 		//findOne();
 		//list();
+		personalizedQueries2();
 	}
 
 	@Transactional //El Transactional se utiliza cuando es un método que modifica la tabla de la BD.
@@ -111,6 +109,49 @@ public class JpaApplication implements CommandLineRunner {
 
 		repository.findAll().forEach(System.out::println);
 		scanner.close();
+	}
+	@Transactional(readOnly = true)
+	public void personalizedQueries() {
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Ingrese el id: ");
+		Long id = scanner.nextLong();
+		scanner.close();
+
+		System.out.println("==================== Mostramos el nombre por id ====================");
+		String name = repository.getNameById(id);
+		System.out.println("El nombre del usuario con id : " + id + " es: " + name);
+
+		System.out.println("==================== Mostramos el nombre y el apellido por id ====================");
+		String fullName = repository.getFullNameById(id);
+		System.out.println("El nombre y apellido del usuario con id : " + id + " es: " + fullName);
+
+		System.out.println("==================== Mostramos todos los registros en la BD ====================");
+		List<Object[]> data = repository.obtenerPersonDataFull();
+		data.forEach(personReg -> System.out.println("ID: " + personReg[0] + " Name: " + personReg[1] + " Lastname: " + personReg[2] + " Language Programing: " + personReg[3]));
+
+		System.out.println("==================== Mostramos un registro de la BD por id ====================");
+		Optional<Object> optionalRed = repository.obtenerPersonDataFullById(id);
+		if (optionalRed.isPresent()){
+			Object[] reg = (Object[]) optionalRed.orElseThrow();
+			System.out.println("ID: " + reg[0] + " Name: " + reg[1] + " Lastname: " + reg[2] + " Language Programing: " + reg[3]);
+		}
+
+	}
+
+	@Transactional(readOnly = true)
+	public void personalizedQueries2() {
+
+		System.out.println("==================== Consulta por Objeto persona y lenguaje de programación ====================");
+		List<Object[]> personsRegs = repository.findMixPersonData();
+
+		personsRegs.forEach(registro -> {
+			System.out.println("Lenguaje de Programación: " + registro[1] + ", Person: " + registro[0]);
+		});
+
+		System.out.println("Consulta que puebla y devuelve un Objeto entity de una instancia personalizada:");
+		List<Person> persons = repository.findAllPersonPersonalized();
+		persons.forEach(System.out::println); //Solamente nos regresa llenos los campos: nombre y apellido
 	}
 
 	@Transactional(readOnly = true)
