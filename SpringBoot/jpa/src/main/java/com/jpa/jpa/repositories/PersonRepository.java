@@ -2,6 +2,8 @@ package com.jpa.jpa.repositories;
 
 
 import com.jpa.jpa.Entities.Person;
+import com.jpa.jpa.dto.PersonDto;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -14,7 +16,7 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
   @Query("select p.name from Person p where p.id=?1")
   String getNameById(Long id);
 
-  @Query("select concat(p.name, ' ', p.lastname) from Person p where p.id=?1")
+  @Query("select concat(p.name, ' ', p.lastname) as fullName from Person p where p.id=?1")
   String getFullNameById(Long id);
 
   @Query("select p from Person p where p.id=?1")
@@ -55,4 +57,36 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
 
   @Query("select new Person(p.name, p.lastname) from Person p") //Llamamos al constructor nuevo
   List<Person> findAllPersonPersonalized();
+
+  @Query("select new com.jpa.jpa.dto.PersonDto(p.name, p.lastname) from Person p") //Llamamos al constructor nuevo
+  List<PersonDto> findAllPersonDTO();
+
+  @Query("select p.name from Person p")
+  List<String> findAllNames();
+
+  @Query("select DISTINCT(p.name) from Person p")
+  List<String> findAllNamesDistinct();
+
+  @Query("select distinct(p.programingLanguage) from Person p")
+  List<String> findAllProgramingLanguagesDistinct();
+
+  @Query("SELECT COUNT(distinct(p.programingLanguage)) FROM Person p")
+  Long findAllProgramingLanguagesDistinctCount();
+
+
+  @Query("select concat(p.name, ' ', p.lastname) from Person p")
+  List<String> findAllFullNameConcat();
+
+  @Query("select UPPER(p.name) || ' ' || LOWER(p.lastname) from Person p") // || -> también nos permite concatenar datos.
+  List<String> findAllFullNameConcat2();
+
+
+  @Query("SELECT p FROM Person p WHERE p.id BETWEEN ?1 and ?2")
+  List<Person> findAllBetweenId(Integer num1, Integer num2);
+  List<Person> findByIdBetween(Integer id1, Integer id2); // Esta consulta hace lo mismo que la de arriba pero con query name method.
+
+  @Query("SELECT p FROM Person p WHERE p.name BETWEEN ?1 AND ?2")
+  List<Person> findAllBetweenNames(String c1, String c2);
+  List<Person> findByNameBetween(String c1, String c2); // Esta consulta hace lo mismo que la de arriba pero con query name method.
+
 }

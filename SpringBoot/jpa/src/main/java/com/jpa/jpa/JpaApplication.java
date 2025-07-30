@@ -1,6 +1,7 @@
 package com.jpa.jpa;
 
 import com.jpa.jpa.Entities.Person;
+import com.jpa.jpa.dto.PersonDto;
 import com.jpa.jpa.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -31,7 +32,10 @@ public class JpaApplication implements CommandLineRunner {
 		//delete2();
 		//findOne();
 		//list();
-		personalizedQueries2();
+		//personalizedQueries2();
+		//personalizedQueriesDistinct();
+		//personalizedQueriesConcatUpperAndLowerCase();
+		personalizedQueriesBetween();
 	}
 
 	@Transactional //El Transactional se utiliza cuando es un método que modifica la tabla de la BD.
@@ -152,6 +156,64 @@ public class JpaApplication implements CommandLineRunner {
 		System.out.println("Consulta que puebla y devuelve un Objeto entity de una instancia personalizada:");
 		List<Person> persons = repository.findAllPersonPersonalized();
 		persons.forEach(System.out::println); //Solamente nos regresa llenos los campos: nombre y apellido
+
+		System.out.println("Consulta que puebla y devuelve un Objeto DTO de una clase personalizada:");
+		List<PersonDto> personDto = repository.findAllPersonDTO();
+		personDto.forEach(System.out::println);
+	}
+
+	@Transactional(readOnly = true)
+	public void personalizedQueriesDistinct(){
+		System.out.println("Consulta que retorna todos los nombres:");
+		List<String> names = repository.findAllNames();
+		names.forEach(System.out::println);
+
+		System.out.println("Consulta que omitiendo los nombres que se repiten:");
+		names = repository.findAllNamesDistinct();
+		names.forEach(System.out::println);
+
+		System.out.println("Consulta que omitiendo los Lenguajes de programación que se repiten:");
+		List<String> languagesDistinct = repository.findAllProgramingLanguagesDistinct();
+		languagesDistinct.forEach(System.out::println);
+
+		System.out.println("Consulta que cuenta los lenguajes de programación unicos:");
+		Long totalLanguages = repository.findAllProgramingLanguagesDistinctCount();
+		System.out.println("Total de lenguajes de programación encontrados: " + totalLanguages);
+
+	}
+
+	@Transactional(readOnly = true)
+	public void personalizedQueriesConcatUpperAndLowerCase() {
+		System.out.println("Consultar nombres (Mayúsculas) y apellidos (Minúsculas) de personas");
+		List<String> fullName = repository.findAllFullNameConcat2();
+		fullName.forEach(System.out::println);
+	}
+
+	@Transactional(readOnly = true)
+	public void personalizedQueriesBetween() {
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Ingrese el primer numero: ");
+		Integer num1 = scanner.nextInt();
+		System.out.print("Ingrese el segundo numero: ");
+		Integer num2 = scanner.nextInt();
+
+		System.out.println("Consulta con el método BETWEEN retorna del ID: " + num1 + "a l ID: " + num2 + ":");
+		//List<Person> personas = repository.findAllBetweenId(num1, num2); // Esta dos consultas hacen lo mismo.
+		List<Person> personas = repository.findByIdBetween(num1, num2);
+		personas.forEach(System.out::println);
+
+		System.out.print("Ingrese el primer carácter: ");
+		String c1 = scanner.next();
+		System.out.print("Ingrese el segundo carácter: ");
+		String c2 = scanner.next();
+
+		System.out.println("Consulta con el método BETWEEN retorna Los nombres que se encuentran entre la " + c1 + " y la " + c2 + ":"); // Tener en cuenta que excluye la E.
+		//personas = repository.findAllBetweenNames(c1.toUpperCase(), c2.toUpperCase()); // Esta dos consultas hacen lo mismo.
+		personas = repository.findByNameBetween(c1.toUpperCase(), c2.toUpperCase());
+		personas.forEach(System.out::println);
+
+		scanner.close();
 	}
 
 	@Transactional(readOnly = true)
