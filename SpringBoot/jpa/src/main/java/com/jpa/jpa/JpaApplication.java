@@ -36,7 +36,9 @@ public class JpaApplication implements CommandLineRunner {
 		//personalizedQueriesDistinct();
 		//personalizedQueriesConcatUpperAndLowerCase();
 		//personalizedQueriesBetween();
-		queryFunctionAggregation();
+		//queryFunctionAggregation();
+		//subQueries();
+		whereIn();
 	}
 
 	@Transactional //El Transactional se utiliza cuando es un método que modifica la tabla de la BD.
@@ -236,6 +238,44 @@ public class JpaApplication implements CommandLineRunner {
 
 		Long maxId = repository.maxId();
 		System.out.println("Registro con ID mayor: " + maxId);
+
+		System.out.println("============================ Consulta con el nombre y su largo: ============================");
+		List<Object[]> registros = repository.getPersonNameLength();
+		registros.forEach(registro -> {
+			System.out.println("Nombre: " + registro[0] + ", Largo del Nombre: " + registro[1]);
+		});
+
+		System.out.println("============================ Consulta con el nombre mas Corto: ============================");
+		Integer data = repository.getMinLengthName();
+		System.out.println(data);
+
+		System.out.println("============================ Consulta con el nombre mas largo: ============================");
+		data = repository.getMaxLengthName();
+		System.out.println(data);
+	}
+
+	@Transactional(readOnly = true)
+	public void subQueries(){
+		System.out.println("============================ Nombre mas corto y su largo: ============================");
+		List<Object[]> registers = repository.getShorterName();
+		registers.forEach(register -> {
+			String name = (String) register[0];
+			Integer length = (Integer) register[1];
+			System.out.println("Name: " + name + ", Largo del nombre: " + length);
+		});
+
+		System.out.println("============================ El ultimo registro de la BD completo: ============================");
+		Optional<Person> optionalPerson = repository.getLastRegistration();
+		optionalPerson.ifPresent(System.out::println);
+
+	}
+
+	@Transactional(readOnly = true)
+	public void whereIn() {
+		System.out.println("============================ Consulta Where In: ============================");
+		List<Person> listPersons = repository.getPersonByIds(Arrays.asList(1, 2, 7, 11));
+		listPersons.forEach(System.out::println);
+
 	}
 
 	@Transactional(readOnly = true)

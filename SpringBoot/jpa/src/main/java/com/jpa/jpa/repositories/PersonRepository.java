@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public interface PersonRepository extends CrudRepository<Person, Long> {
@@ -103,5 +104,25 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
 
   @Query("SELECT MAX(p.id) FROM Person p")
   Long maxId();
+
+
+  @Query("SELECT p.name, length(p.name) FROM Person p")
+  List<Object[]> getPersonNameLength();
+
+  @Query("SELECT MIN(LENGTH(p.name)) FROM Person p")
+  Integer getMinLengthName();
+
+  @Query("SELECT MAX(LENGTH(p.name)) FROM Person p")
+  Integer getMaxLengthName();
+
+  @Query("SELECT p.name, LENGTH(p.name) FROM Person p WHERE LENGTH(p.name) = (SELECT MIN(LENGTH(p2.name)) FROM Person p2)")
+  List<Object[]> getShorterName();
+
+  @Query("SELECT p FROM Person p WHERE p.id = (SELECT MAX(p2.id) FROM Person p2)")
+  Optional<Person> getLastRegistration();
+
+
+  @Query("SELECT p FROM Person p WHERE p.id IN ?1") // El in también se puede reemplazar por NOT IN
+  List<Person> getPersonByIds(List<Integer> ids);
 
 }
