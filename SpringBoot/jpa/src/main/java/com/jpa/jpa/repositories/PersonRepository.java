@@ -81,12 +81,27 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
   List<String> findAllFullNameConcat2();
 
 
-  @Query("SELECT p FROM Person p WHERE p.id BETWEEN ?1 and ?2")
+  @Query("SELECT p FROM Person p WHERE p.id BETWEEN ?1 and ?2 ORDER BY p.name ASC")
   List<Person> findAllBetweenId(Integer num1, Integer num2);
-  List<Person> findByIdBetween(Integer id1, Integer id2); // Esta consulta hace lo mismo que la de arriba pero con query name method.
+  List<Person> findByIdBetweenOrderByIdAsc(Integer id1, Integer id2); // Esta consulta hace lo mismo que la de arriba pero con query name method.
 
-  @Query("SELECT p FROM Person p WHERE p.name BETWEEN ?1 AND ?2")
+  @Query("SELECT p FROM Person p WHERE p.name BETWEEN ?1 AND ?2 ORDER BY p.name DESC")
   List<Person> findAllBetweenNames(String c1, String c2);
-  List<Person> findByNameBetween(String c1, String c2); // Esta consulta hace lo mismo que la de arriba pero con query name method.
+  List<Person> findByNameBetweenOrderByNameDescLastnameAsc(String c1, String c2); // Esta consulta hace lo mismo que la de arriba pero con query name method.
+
+  @Query("SELECT p FROM Person p ORDER BY p.name DESC")
+  List<Person> getAllOrdered();
+  List<Person> findAllByOrderByNameDescLastnameAsc(); //Esta consulta hace lo mismo que la de arriba
+
+
+
+  @Query("SELECT COUNT(p.name) FROM Person p")
+  Long totalPerson();
+
+  @Query("SELECT MIN(p.id) FROM Person p")
+  Long minId();
+
+  @Query("SELECT MAX(p.id) FROM Person p")
+  Long maxId();
 
 }

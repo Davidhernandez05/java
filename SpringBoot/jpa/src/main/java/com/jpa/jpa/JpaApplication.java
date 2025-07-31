@@ -35,7 +35,8 @@ public class JpaApplication implements CommandLineRunner {
 		//personalizedQueries2();
 		//personalizedQueriesDistinct();
 		//personalizedQueriesConcatUpperAndLowerCase();
-		personalizedQueriesBetween();
+		//personalizedQueriesBetween();
+		queryFunctionAggregation();
 	}
 
 	@Transactional //El Transactional se utiliza cuando es un método que modifica la tabla de la BD.
@@ -200,7 +201,7 @@ public class JpaApplication implements CommandLineRunner {
 
 		System.out.println("Consulta con el método BETWEEN retorna del ID: " + num1 + "a l ID: " + num2 + ":");
 		//List<Person> personas = repository.findAllBetweenId(num1, num2); // Esta dos consultas hacen lo mismo.
-		List<Person> personas = repository.findByIdBetween(num1, num2);
+		List<Person> personas = repository.findByIdBetweenOrderByIdAsc(num1, num2);
 		personas.forEach(System.out::println);
 
 		System.out.print("Ingrese el primer carácter: ");
@@ -210,10 +211,31 @@ public class JpaApplication implements CommandLineRunner {
 
 		System.out.println("Consulta con el método BETWEEN retorna Los nombres que se encuentran entre la " + c1 + " y la " + c2 + ":"); // Tener en cuenta que excluye la E.
 		//personas = repository.findAllBetweenNames(c1.toUpperCase(), c2.toUpperCase()); // Esta dos consultas hacen lo mismo.
-		personas = repository.findByNameBetween(c1.toUpperCase(), c2.toUpperCase());
+		personas = repository.findByNameBetweenOrderByNameDescLastnameAsc(c1.toUpperCase(), c2.toUpperCase());
 		personas.forEach(System.out::println);
 
 		scanner.close();
+
+		System.out.println("============================ Listas Ordenadas: ============================");
+		List<Person> orderPerson = repository.getAllOrdered();
+		orderPerson.forEach(System.out::println);
+
+		orderPerson = repository.findAllByOrderByNameDescLastnameAsc();
+		orderPerson.forEach(System.out::println);
+	}
+
+	@Transactional(readOnly = true)
+	public void queryFunctionAggregation() {
+
+		System.out.println("============================ Consultas Count, Min, Max ============================");
+		Long count = repository.totalPerson();
+		System.out.println("Total de registros: " + count);
+
+		Long minId = repository.minId();
+		System.out.println("Registro con ID menor: " + minId);
+
+		Long maxId = repository.maxId();
+		System.out.println("Registro con ID mayor: " + maxId);
 	}
 
 	@Transactional(readOnly = true)
