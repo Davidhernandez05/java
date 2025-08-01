@@ -28,7 +28,7 @@ public class JpaApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 		//create();
-		//update();
+		update();
 		//delete2();
 		//findOne();
 		//list();
@@ -38,7 +38,7 @@ public class JpaApplication implements CommandLineRunner {
 		//personalizedQueriesBetween();
 		//queryFunctionAggregation();
 		//subQueries();
-		whereIn();
+		//whereIn();
 	}
 
 	@Transactional //El Transactional se utiliza cuando es un método que modifica la tabla de la BD.
