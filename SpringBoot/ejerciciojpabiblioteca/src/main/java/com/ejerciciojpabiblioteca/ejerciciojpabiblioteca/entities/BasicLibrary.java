@@ -20,7 +20,11 @@ public class BasicLibrary {
   public BasicLibrary() {
   }
 
-  public BasicLibrary(Integer id, String autorName, String bookName, String gender) {
+  public BasicLibrary(Integer id, String bookName, String autorName, String gender) {
+    this.setId(id);
+    this.setBookName(bookName);
+    this.setAutorName(autorName);
+    this.setGender(gender);
 
   }
 

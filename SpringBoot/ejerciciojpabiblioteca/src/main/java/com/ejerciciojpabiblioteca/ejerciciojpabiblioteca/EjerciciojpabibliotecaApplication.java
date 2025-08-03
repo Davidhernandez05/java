@@ -3,6 +3,7 @@ package com.ejerciciojpabiblioteca.ejerciciojpabiblioteca;
 import com.ejerciciojpabiblioteca.ejerciciojpabiblioteca.entities.BasicLibrary;
 import com.ejerciciojpabiblioteca.ejerciciojpabiblioteca.repositories.LibraryRepository;
 import com.ejerciciojpabiblioteca.ejerciciojpabiblioteca.services.SolicitarDatos;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,6 +14,8 @@ import java.util.Map;
 @SpringBootApplication
 public class EjerciciojpabibliotecaApplication implements CommandLineRunner {
 
+	//Inyectamos el Repository:
+	@Autowired
 	private LibraryRepository repository;
 
 	public static void main(String[] args) {
@@ -28,15 +31,23 @@ public class EjerciciojpabibliotecaApplication implements CommandLineRunner {
 
 	@Transactional
 	public void Create() {
+		//Solicitamos los datos
 		Map<String, String> data = new SolicitarDatos().DataCreate();
 
+		//Validamos que el MAP tenga las keys que necesitamos:
+		if (!data.containsKey("Libro") || !data.containsKey("Autor") || !data.containsKey("Genero")) {
+			throw new IllegalArgumentException("Dato solicitados no proporcionados.");
+		}
+
+		//Guardamos los valores del MAP en sus respectivas variables:
 		String book = data.get("Libro");
 		String autor = data.get("Autor");
-		String generoLibro = data.get("GeneroLibro");
+		String genero = data.get("Genero");
 
-		BasicLibrary library = new BasicLibrary(null, autor, book, generoLibro);
+
+		//Guardamos los valores en la BD:
+		BasicLibrary library = new BasicLibrary(null, book, autor, genero);
 		BasicLibrary bookNew = repository.save(library);
-
 		System.out.println(bookNew);
 
 	}
