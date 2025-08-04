@@ -2,6 +2,7 @@ package com.ejerciciojpabiblioteca.ejerciciojpabiblioteca;
 
 import com.ejerciciojpabiblioteca.ejerciciojpabiblioteca.entities.BasicLibrary;
 import com.ejerciciojpabiblioteca.ejerciciojpabiblioteca.repositories.LibraryRepository;
+import com.ejerciciojpabiblioteca.ejerciciojpabiblioteca.services.Opciones;
 import com.ejerciciojpabiblioteca.ejerciciojpabiblioteca.services.SolicitarDatos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -25,7 +26,9 @@ public class EjerciciojpabibliotecaApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Create();
+		Integer opc = new Opciones().Select();
+
+		System.out.println(opc);
 
 	}
 
