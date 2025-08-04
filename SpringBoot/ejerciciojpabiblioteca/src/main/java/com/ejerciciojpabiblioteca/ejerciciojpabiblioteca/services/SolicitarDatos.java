@@ -1,6 +1,7 @@
 package com.ejerciciojpabiblioteca.ejerciciojpabiblioteca.services;
 
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -32,10 +33,23 @@ public class SolicitarDatos {
 
       return data;
     }finally {
-      
+
     }
 
   }
 
+  public Integer solicitarId() {
+    Scanner scanner = new Scanner(System.in);
+    Integer id = null;
+
+    try {
+      System.out.print("Ingrese el ID: ");
+      id = scanner.nextInt();
+
+    }catch (InputMismatchException e){
+      System.out.println("ID no valido. ");
+    }
+    return id;
+  }
 
 }

@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Map;
+import java.util.Optional;
 
 @SpringBootApplication
 public class EjerciciojpabibliotecaApplication implements CommandLineRunner {
@@ -26,12 +27,32 @@ public class EjerciciojpabibliotecaApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Integer opc = new Opciones().Select();
+		while (true) {
+			Integer opc = new Opciones().Select();
+			if (opc == 1) {
+				Create();
+			} else if (opc == 2) {
+				Delete();
+			}else if (opc == 3) {
+				System.out.println("3");
+			}else if (opc == 4) {
+				System.out.println("4");
+			}else if (opc == 5) {
+				System.out.println("5");
+			}else if (opc == 6) {
+				System.out.println("Cerrando el aplicativo.");
+				break;
+			}else {
+				System.out.println("Opción ingresada no valida inténtelo nuevamente.");
+			}
 
-		System.out.println(opc);
+		}
+
+
 
 	}
 
+	// Crear un nuevo libro.
 	@Transactional
 	public void Create() {
 		//Solicitamos los datos
@@ -53,6 +74,25 @@ public class EjerciciojpabibliotecaApplication implements CommandLineRunner {
 		BasicLibrary bookNew = repository.save(library);
 		System.out.println(bookNew);
 
+	}
+
+	//Eliminar un libro por ID.
+	@Transactional
+	public void Delete() {
+		Integer id = new SolicitarDatos().solicitarId();
+
+		//Buscamos por el ID en el repositorio.
+		Optional<BasicLibrary> optionalBasicLibrary = repository.findById(id);
+
+		// Si existe el ID lo elimina si no envía mensaje de que no se encontró.
+		optionalBasicLibrary.ifPresentOrElse(book -> {
+			repository.delete(book);
+			System.out.println("Eliminaste el libro: \n" + book);
+		}, () -> System.out.println("No se encontró el libro en la Base de Datos.") );
+
+		// Imprimimos todos los elementos de la BD.
+		System.out.println("Libros en la Base de Datos luego de la eliminación del ID: " + id);
+		repository.findAll().forEach(System.out::println);
 	}
 
 }

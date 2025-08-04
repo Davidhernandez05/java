@@ -22,11 +22,14 @@ public class Opciones {
   }
 
   private void Menu() {
-    System.out.println("1. Crear un nuevo libro en la base de datos.");
-    System.out.println("2. Eliminar un libro de la base de datos.");
-    System.out.println("3. Mostrar todos los libros registrados en la base de datos.");
-    System.out.println("4. Buscar un libro por ID.");
-    System.out.println("5. Salir del sistema.");
+    System.out.println("==================================================================");
+    System.out.println("|| 1. Crear un nuevo libro en la base de datos.                 ||");
+    System.out.println("|| 2. Eliminar un libro de la base de datos.                    ||");
+    System.out.println("|| 3. Mostrar todos los libros registrados en la base de datos. ||");
+    System.out.println("|| 4. Buscar un libro por ID.                                   ||");
+    System.out.println("|| 5. Actualizar un libro.                                      ||");
+    System.out.println("|| 6. Salir del sistema.                                        ||");
+    System.out.println("==================================================================");
   }
 
 }
