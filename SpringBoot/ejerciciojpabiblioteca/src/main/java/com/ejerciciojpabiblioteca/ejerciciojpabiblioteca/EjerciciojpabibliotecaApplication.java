@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
 
 @SpringBootApplication
 public class EjerciciojpabibliotecaApplication implements CommandLineRunner {
@@ -38,7 +39,7 @@ public class EjerciciojpabibliotecaApplication implements CommandLineRunner {
 			}else if (opc == 4) {
 				System.out.println("4");
 			}else if (opc == 5) {
-				System.out.println("5");
+				Update();
 			}else if (opc == 6) {
 				System.out.println("Cerrando el aplicativo.");
 				break;
@@ -95,4 +96,49 @@ public class EjerciciojpabibliotecaApplication implements CommandLineRunner {
 		repository.findAll().forEach(System.out::println);
 	}
 
+	@Transactional
+	public void Update() {
+
+		// Buscamos el ID.
+		Integer id = new SolicitarDatos().solicitarId();
+		Optional<BasicLibrary> optionalBasicLibrary = repository.findById(id);
+		optionalBasicLibrary.ifPresentOrElse(book -> {
+
+			System.out.print("====================================================================================");
+			System.out.println("|Se modificara el libro: \n" + book);
+			System.out.print("====================================================================================");
+
+			Map<String, String> newData = new SolicitarDatos().UpdateData();
+
+			String newName = newData.get("newName");
+			String newAutor = newData.get("newAutor");
+			String newGender = newData.get("newGender");
+
+			if (!newName.isBlank()) {
+				book.setBookName(newName);
+			}else {
+				book.setBookName(book.getBookName());
+			}
+			if (!newAutor.isBlank()) {
+				book.setAutorName(newAutor);
+			}else {
+				book.setAutorName(book.getAutorName());
+			}
+			if (!newGender.isBlank()) {
+				book.setGender(newGender);
+			}else {
+				book.setGender(book.getGender());
+			}
+
+			BasicLibrary newBook = repository.save(book);
+
+			System.out.print("====================================================================================");
+			System.out.println("| Se actualizo correctamente el libro con el ID: " + id + "|");
+			System.out.println(newBook);
+			System.out.print("====================================================================================");
+
+		}, () -> System.out.println("El ID no se encuentra en la Base de Datos."));
+
+
+	}
 }

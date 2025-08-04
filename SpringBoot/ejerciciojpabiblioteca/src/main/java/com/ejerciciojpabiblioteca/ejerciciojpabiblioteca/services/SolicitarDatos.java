@@ -1,5 +1,7 @@
 package com.ejerciciojpabiblioteca.ejerciciojpabiblioteca.services;
 
+import com.ejerciciojpabiblioteca.ejerciciojpabiblioteca.repositories.LibraryRepository;
+
 import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Map;
@@ -50,6 +52,24 @@ public class SolicitarDatos {
       System.out.println("ID no valido. ");
     }
     return id;
+  }
+
+  public Map<String, String> UpdateData() {
+    Scanner scanner = new Scanner(System.in);
+    Map<String, String> data = new HashMap<>();
+
+    System.out.print("Ingresa el nuevo nombre del libro: ");
+    String newName = scanner.nextLine();
+    System.out.print("Ingresa el nuevo autor del libro: ");
+    String newAutor = scanner.nextLine();
+    System.out.print("Ingresa el nuevo genero del libro: ");
+    String newGender = scanner.nextLine();
+
+    data.put("newName", newName);
+    data.put("newAutor", newAutor);
+    data.put("newGender", newGender);
+
+    return data;
   }
 
 }
