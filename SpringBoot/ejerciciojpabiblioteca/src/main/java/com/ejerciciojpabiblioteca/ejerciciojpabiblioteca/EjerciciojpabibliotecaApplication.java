@@ -35,7 +35,7 @@ public class EjerciciojpabibliotecaApplication implements CommandLineRunner {
 			} else if (opc == 2) {
 				Delete();
 			}else if (opc == 3) {
-				System.out.println("3");
+				ListarTodosLosLibros();
 			}else if (opc == 4) {
 				System.out.println("4");
 			}else if (opc == 5) {
@@ -140,5 +140,12 @@ public class EjerciciojpabibliotecaApplication implements CommandLineRunner {
 		}, () -> System.out.println("El ID no se encuentra en la Base de Datos."));
 
 
+	}
+
+	@Transactional
+	public void ListarTodosLosLibros() {
+		System.out.println("Lista de libros: ");
+		Iterable<BasicLibrary> books = repository.findAll();
+		books.forEach(System.out::println);
 	}
 }
