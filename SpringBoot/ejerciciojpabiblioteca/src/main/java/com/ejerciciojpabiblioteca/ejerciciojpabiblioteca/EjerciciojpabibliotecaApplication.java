@@ -37,7 +37,7 @@ public class EjerciciojpabibliotecaApplication implements CommandLineRunner {
 			}else if (opc == 3) {
 				ListarTodosLosLibros();
 			}else if (opc == 4) {
-				System.out.println("4");
+				FindByID();
 			}else if (opc == 5) {
 				Update();
 			}else if (opc == 6) {
@@ -46,11 +46,8 @@ public class EjerciciojpabibliotecaApplication implements CommandLineRunner {
 			}else {
 				System.out.println("Opción ingresada no valida inténtelo nuevamente.");
 			}
-
 		}
-
-
-
+		
 	}
 
 	// Crear un nuevo libro.
@@ -94,6 +91,24 @@ public class EjerciciojpabibliotecaApplication implements CommandLineRunner {
 		// Imprimimos todos los elementos de la BD.
 		System.out.println("Libros en la Base de Datos luego de la eliminación del ID: " + id);
 		repository.findAll().forEach(System.out::println);
+	}
+
+	@Transactional
+	public void ListarTodosLosLibros() {
+		System.out.println("Lista de libros: ");
+		Iterable<BasicLibrary> books = repository.findAll();
+		books.forEach(System.out::println);
+	}
+
+	@Transactional
+	public void FindByID() {
+		Integer id = new SolicitarDatos().solicitarId();
+		Optional<BasicLibrary> optionalBasicLibrary = repository.findById(id);
+
+		optionalBasicLibrary.ifPresentOrElse(book -> {
+			System.out.println("El libro buscado por el ID: " + id + " es: ");
+			System.out.println(book);
+		}, () -> System.out.println("No se encontró ningún elemento con el ID: " + id));
 	}
 
 	@Transactional
@@ -142,10 +157,5 @@ public class EjerciciojpabibliotecaApplication implements CommandLineRunner {
 
 	}
 
-	@Transactional
-	public void ListarTodosLosLibros() {
-		System.out.println("Lista de libros: ");
-		Iterable<BasicLibrary> books = repository.findAll();
-		books.forEach(System.out::println);
-	}
+
 }
