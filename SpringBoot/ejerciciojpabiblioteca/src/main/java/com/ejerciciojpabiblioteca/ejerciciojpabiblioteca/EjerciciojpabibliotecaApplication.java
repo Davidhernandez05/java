@@ -47,7 +47,7 @@ public class EjerciciojpabibliotecaApplication implements CommandLineRunner {
 				System.out.println("Opción ingresada no valida inténtelo nuevamente.");
 			}
 		}
-		
+
 	}
 
 	// Crear un nuevo libro.
