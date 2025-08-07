@@ -14,6 +14,7 @@ public class Invoice {
   private Integer total;
 
   @ManyToOne
+  //@JoinColumn(name = "cliente_id") -> Nos permite personalizar el nombre de la llave foránea en caso de que no exista la tabla.
   private Client client; // De forma automática va a tomar el nombre de client_id
 
   public Invoice() {
