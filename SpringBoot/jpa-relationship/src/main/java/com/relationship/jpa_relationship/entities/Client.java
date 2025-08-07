@@ -28,4 +28,13 @@ public class Client {
 
   public void setName(String name) {  this.name = name; }
   public void setLastname(String lastname) {  this.lastname = lastname; }
+
+  @Override
+  public String toString() {
+    return "{" +
+        "id:" + id +
+        ", name:'" + name + '\'' +
+        ", lastname:'" + lastname + '\'' +
+        '}';
+  }
 }
