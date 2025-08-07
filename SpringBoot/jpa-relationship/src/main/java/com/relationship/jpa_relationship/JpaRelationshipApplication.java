@@ -1,16 +1,20 @@
 package com.relationship.jpa_relationship;
 
 import aj.org.objectweb.asm.Opcodes;
+import com.relationship.jpa_relationship.entities.Address;
 import com.relationship.jpa_relationship.entities.Client;
 import com.relationship.jpa_relationship.entities.Invoice;
+import com.relationship.jpa_relationship.repositories.AddressesRepository;
 import com.relationship.jpa_relationship.repositories.ClientRepository;
 import com.relationship.jpa_relationship.repositories.InvoiceRepositiry;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 @SpringBootApplication
@@ -22,6 +26,9 @@ public class JpaRelationshipApplication implements CommandLineRunner {
   @Autowired
   private InvoiceRepositiry invoiceRepositiry;
 
+  @Autowired
+  private AddressesRepository addressesRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(JpaRelationshipApplication.class, args);
 	}
@@ -29,7 +36,44 @@ public class JpaRelationshipApplication implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
     //manyToOne();
-    manyToOneFindById();
+    //manyToOneFindById();
+    //oneToMany();
+    oneToManyFindById();
+  }
+
+  @Transactional
+  public void oneToMany() {
+    // Creamos las direcciones y al cliente.
+    // Al crear el cliente y guardarlo este se encarga de crear las direcciones en su respectiva tabla y crear las relaciones.
+    // Por este motivo tenemos él: cascade = CascadeType.ALL
+    Client client = new Client("Many", "Manito");
+
+    Address address1 = new Address("España", "El veraje", 123);
+    Address address2 = new Address("EEUU", "Wall Street", 1233);
+
+    // Por este motivo se agregan las direcciones al cliente.
+    client.getAddresses().add(address1);
+    client.getAddresses().add(address2);
+
+    clientRepository.save(client);
+
+    System.out.println(client);
+  }
+
+  @Transactional
+  public void oneToManyFindById() {
+    Optional<Client> optionalClient = clientRepository.findById(2);
+
+    optionalClient.ifPresentOrElse(client -> {
+      Address address1 = new Address("Colombia", "San Antonio", 189);
+      Address address2 = new Address("Mexico", "Calle 13", 123);
+
+      client.setAddresses(Arrays.asList(address1, address2));
+
+      Client clientDB = clientRepository.save(client);
+      System.out.println(clientDB);
+
+    }, () -> System.out.println("No se encontró el ID indicado."));
   }
 
   @Transactional
