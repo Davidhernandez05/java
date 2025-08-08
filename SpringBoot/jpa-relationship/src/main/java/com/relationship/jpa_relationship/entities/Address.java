@@ -2,6 +2,8 @@ package com.relationship.jpa_relationship.entities;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "addresses")
 public class Address {
@@ -42,5 +44,19 @@ public class Address {
         ", street:'" + street + '\'' +
         ", number:" + number +
         '}';
+  }
+
+
+  // Nos permite eliminar un elemento de la lista mediante un criterio de búsqueda o comparación por el ID y no por referencia.
+  @Override
+  public boolean equals(Object o) {
+    if (o == null || getClass() != o.getClass()) return false;
+    Address address = (Address) o;
+    return Objects.equals(id, address.id);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hashCode(id);
   }
 }

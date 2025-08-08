@@ -16,8 +16,14 @@ public class Client {
   private String name;
   private String lastname;
 
-  //orphanRemoval = true -> Hace que se eliminen las direcciones huérfanas.
-  @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+  // Creamos la tabla intermedia con sus respectivas columnas.
+  // @JoinTable(
+  //     name = "tbl_clientes_to_direcciones", // -> Le ponemos nombre a la tabla intermedia.
+  //     joinColumns = @JoinColumn(name = "id_clientes"), // -> Nombremos la columna de nuestra primera tabla. -> Él, Id se puede repetir.
+  //     inverseJoinColumns = @JoinColumn(name = "id_direcciones"), // -> Nombramos la columna de nuestra segunda tabla. -> Él, Id no se puede repetir
+  //     uniqueConstraints = @UniqueConstraint(columnNames = {"id_direcciones"}) // -> Le decimos que los IDs de la segunda tabla deben de ser unicos.
+  // )
+  @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true) //orphanRemoval = true -> Hace que se eliminen las direcciones huérfanas.
   private List<Address> addresses;
 
   public Client() {

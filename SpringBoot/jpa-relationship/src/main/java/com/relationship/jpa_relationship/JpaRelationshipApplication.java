@@ -38,12 +38,14 @@ public class JpaRelationshipApplication implements CommandLineRunner {
     //manyToOne();
     //manyToOneFindById();
     //oneToMany();
-    oneToManyFindById();
+    //oneToManyFindById();
+    //removeAddress();
+    removeAddressFindById();
   }
 
   @Transactional
   public void oneToMany() {
-    // Creamos las direcciones y al cliente.
+    // Creamos tanto las direcciones como al cliente.
     // Al crear el cliente y guardarlo este se encarga de crear las direcciones en su respectiva tabla y crear las relaciones.
     // Por este motivo tenemos él: cascade = CascadeType.ALL
     Client client = new Client("Many", "Manito");
@@ -60,20 +62,74 @@ public class JpaRelationshipApplication implements CommandLineRunner {
     System.out.println(client);
   }
 
-  @Transactional
+  @Transactional // Operaciones sobre las tablas.
   public void oneToManyFindById() {
+    // Actualizamos o agregamos la dirección a un cliente que ya existe.
     Optional<Client> optionalClient = clientRepository.findById(2);
 
     optionalClient.ifPresentOrElse(client -> {
       Address address1 = new Address("Colombia", "San Antonio", 189);
       Address address2 = new Address("Mexico", "Calle 13", 123);
 
-      client.setAddresses(Arrays.asList(address1, address2));
+      client.setAddresses(Arrays.asList(address1, address2)); // Actualizar el address de un cliente.
 
       Client clientDB = clientRepository.save(client);
       System.out.println(clientDB);
 
     }, () -> System.out.println("No se encontró el ID indicado."));
+  }
+
+  @Transactional // Operaciones sobre las tablas.
+  public void removeAddress() {
+
+    Client client = new Client("Francisco", "Matematico");
+
+    Address address1 = new Address("Colombia", "Calle 186", 67);
+    Address address2 = new Address("EEUU", "Wall Street", 123);
+
+    client.getAddresses().add(address1);
+    client.getAddresses().add(address2);
+
+    Client clientDB = clientRepository.save(client);
+    System.out.println(clientDB);
+
+    Optional<Client> optionalClient = clientRepository.findById(3);
+    optionalClient.ifPresentOrElse(c -> {
+
+      c.getAddresses().remove(address2);
+      clientRepository.save(c);
+      System.out.println(c);
+
+    }, () -> System.out.println("No se encontró al cliente en la Base de Datos."));
+  }
+
+  @Transactional
+  public void removeAddressFindById() {
+    Optional<Client> optionalClient = clientRepository.findById(2);
+    optionalClient.ifPresentOrElse(client -> {
+
+      Address address1 = new Address("Colombia", "Calle 186", 67);
+      Address address2 = new Address("EEUU", "Wall Street", 123);
+      client.setAddresses(Arrays.asList(address1, address2));
+
+      Client c = clientRepository.save(client);
+      System.out.println(c);
+
+    }, () -> System.out.println("No se encontró al cliente en la Base de Datos."));
+
+    // Eliminamos una dirección de un cliente que ya existe en nuestra BD.
+    Optional<Client> optionalClient1 = clientRepository.findById(2);
+    optionalClient1.ifPresentOrElse(client -> {
+
+      // Buscamos el ID_address que queremos eliminar del cliente.
+      Optional<Address> optionalAddress = addressesRepository.findById(1);
+      optionalAddress.ifPresentOrElse(a -> {
+        client.getAddresses().remove(a);
+        Client c2 = clientRepository.save(client);
+        System.out.println(c2);
+
+      }, () -> System.out.println("No se encontró ninguna dirección con el ID indicado."));
+    }, () -> System.out.println("No se encontró el Id en la BD."));
   }
 
   @Transactional
