@@ -26,8 +26,12 @@ public class Client {
   @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true) //orphanRemoval = true -> Hace que se eliminen las direcciones huérfanas.
   private List<Address> addresses;
 
+  @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "client") // Así se estructura una relación inversa.
+  protected List<Invoice> invoices;
+
   public Client() {
     addresses = new ArrayList<>();
+    invoices = new ArrayList<>();
   }
 
   public Client(String name, String lastname) {
@@ -40,10 +44,12 @@ public class Client {
   public String getName() { return name;  }
   public String getLastname() { return lastname;  }
   public List<Address> getAddresses() { return addresses; }
+  public List<Invoice> getInvoices() {  return invoices;  }
 
   public void setName(String name) {  this.name = name; }
   public void setLastname(String lastname) {  this.lastname = lastname; }
   public void setAddresses(List<Address> addresses) { this.addresses = addresses; }
+  public void setInvoices(List<Invoice> invoices) { this.invoices = invoices; }
 
   @Override
   public String toString() {
@@ -52,6 +58,7 @@ public class Client {
         ", name:'" + name + '\'' +
         ", lastname:'" + lastname + '\'' +
         ", addresses:'" + addresses + '\'' +
+        ", facturas:'" + invoices + '\'' +
         '}';
   }
 }

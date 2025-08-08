@@ -118,7 +118,7 @@ public class JpaRelationshipApplication implements CommandLineRunner {
     }, () -> System.out.println("No se encontró al cliente en la Base de Datos."));
 
     // Eliminamos una dirección de un cliente que ya existe en nuestra BD.
-    Optional<Client> optionalClient1 = clientRepository.findById(2);
+    Optional<Client> optionalClient1 = clientRepository.findOne(2);
     optionalClient1.ifPresentOrElse(client -> {
 
       // Buscamos el ID_address que queremos eliminar del cliente.
