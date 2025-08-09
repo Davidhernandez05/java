@@ -51,6 +51,12 @@ public class Client {
   public void setAddresses(List<Address> addresses) { this.addresses = addresses; }
   public void setInvoices(List<Invoice> invoices) { this.invoices = invoices; }
 
+
+  public void addInvoice(Invoice invoice) {
+    invoices.add(invoice);
+    invoice.setClient(this);
+  }
+
   @Override
   public String toString() {
     return "{" +
