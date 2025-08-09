@@ -3,7 +3,9 @@ package com.relationship.jpa_relationship.entities;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "clients")
@@ -24,14 +26,14 @@ public class Client {
   //     uniqueConstraints = @UniqueConstraint(columnNames = {"id_direcciones"}) // -> Le decimos que los IDs de la segunda tabla deben de ser unicos.
   // )
   @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true) //orphanRemoval = true -> Hace que se eliminen las direcciones huérfanas.
-  private List<Address> addresses;
+  private Set<Address> addresses;
 
   @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "client") // Así se estructura una relación inversa.
-  protected List<Invoice> invoices;
+  protected Set<Invoice> invoices;
 
   public Client() {
-    addresses = new ArrayList<>();
-    invoices = new ArrayList<>();
+    addresses = new HashSet<>();
+    invoices = new HashSet<>();
   }
 
   public Client(String name, String lastname) {
@@ -43,13 +45,13 @@ public class Client {
   public Integer getId() {  return id;  }
   public String getName() { return name;  }
   public String getLastname() { return lastname;  }
-  public List<Address> getAddresses() { return addresses; }
-  public List<Invoice> getInvoices() {  return invoices;  }
+  public Set<Address> getAddresses() { return addresses; }
+  public Set<Invoice> getInvoices() {  return invoices;  }
 
   public void setName(String name) {  this.name = name; }
   public void setLastname(String lastname) {  this.lastname = lastname; }
-  public void setAddresses(List<Address> addresses) { this.addresses = addresses; }
-  public void setInvoices(List<Invoice> invoices) { this.invoices = invoices; }
+  public void setAddresses(Set<Address> addresses) { this.addresses = addresses; }
+  public void setInvoices(Set<Invoice> invoices) { this.invoices = invoices; }
 
 
   public void addInvoice(Invoice invoice) {

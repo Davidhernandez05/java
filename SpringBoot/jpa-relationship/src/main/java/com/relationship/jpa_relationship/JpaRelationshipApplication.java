@@ -13,10 +13,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 @SpringBootApplication
 public class JpaRelationshipApplication implements CommandLineRunner {
@@ -42,9 +42,11 @@ public class JpaRelationshipApplication implements CommandLineRunner {
     //oneToManyFindById();
     //removeAddress();
     //removeAddressFindById();
-    oneToManyInvoiceBidireccional();
+    //oneToManyInvoiceBidireccional();
+    oneToManyInvoiceBidireccionalFindById();
   }
 
+  // Relación de uno a muchos, bidireccional.
   @Transactional
   public void oneToManyInvoiceBidireccional() {
     Client client = new Client("David", "Hernandez");
@@ -61,6 +63,25 @@ public class JpaRelationshipApplication implements CommandLineRunner {
     System.out.println(client);
   }
 
+  @Transactional
+  public void oneToManyInvoiceBidireccionalFindById() {
+    Optional<Client> optionalClient = clientRepository.findOne(2);
+
+    optionalClient.ifPresentOrElse(c -> {
+      Invoice invoice1 = new Invoice("gafas", 100);
+      Invoice invoice2 = new Invoice("Libro", 40);
+
+      c.addInvoice(invoice1);
+      c.addInvoice(invoice2);
+
+      clientRepository.save(c);
+      System.out.println(c);
+
+    }, () -> System.out.println("No se encontró el ID del cliente."));
+
+  }
+
+  // Relation de uno a muchos.
   @Transactional
   public void oneToMany() {
     // Creamos tanto las direcciones como al cliente.
@@ -80,6 +101,7 @@ public class JpaRelationshipApplication implements CommandLineRunner {
     System.out.println(client);
   }
 
+  // Relación de uno a muchos buscando por ID.
   @Transactional // Operaciones sobre las tablas.
   public void oneToManyFindById() {
     // Actualizamos o agregamos la dirección a un cliente que ya existe.
@@ -89,7 +111,10 @@ public class JpaRelationshipApplication implements CommandLineRunner {
       Address address1 = new Address("Colombia", "San Antonio", 189);
       Address address2 = new Address("Mexico", "Calle 13", 123);
 
-      client.setAddresses(Arrays.asList(address1, address2)); // Actualizar el address de un cliente.
+      Set<Address> addresses = new HashSet<>();
+      addresses.add(address1);
+      addresses.add(address2);
+      client.setAddresses(addresses); // Actualizar el address de un cliente.
 
       Client clientDB = clientRepository.save(client);
       System.out.println(clientDB);
@@ -111,7 +136,7 @@ public class JpaRelationshipApplication implements CommandLineRunner {
     Client clientDB = clientRepository.save(client);
     System.out.println(clientDB);
 
-    Optional<Client> optionalClient = clientRepository.findOne(3);
+    Optional<Client> optionalClient = clientRepository.findOneWithAddresses(3);
     optionalClient.ifPresentOrElse(c -> {
 
       c.getAddresses().remove(address2);
@@ -128,7 +153,11 @@ public class JpaRelationshipApplication implements CommandLineRunner {
 
       Address address1 = new Address("Colombia", "Calle 186", 67);
       Address address2 = new Address("EEUU", "Wall Street", 123);
-      client.setAddresses(Arrays.asList(address1, address2));
+
+      Set<Address> addresses = new HashSet<>();
+      addresses.add(address1);
+      addresses.add(address2);
+      client.setAddresses(addresses);
 
       Client c = clientRepository.save(client);
       System.out.println(c);
@@ -136,7 +165,7 @@ public class JpaRelationshipApplication implements CommandLineRunner {
     }, () -> System.out.println("No se encontró al cliente en la Base de Datos."));
 
     // Eliminamos una dirección de un cliente que ya existe en nuestra BD.
-    Optional<Client> optionalClient1 = clientRepository.findOne(2);
+    Optional<Client> optionalClient1 = clientRepository.findOneWithAddresses(2);
     optionalClient1.ifPresentOrElse(client -> {
 
       // Buscamos el ID_address que queremos eliminar del cliente.
@@ -150,6 +179,7 @@ public class JpaRelationshipApplication implements CommandLineRunner {
     }, () -> System.out.println("No se encontró el Id en la BD."));
   }
 
+  // Relación de muchos a uno.
   @Transactional
   public void manyToOne() {
     // Creamos el cliente;
@@ -164,6 +194,7 @@ public class JpaRelationshipApplication implements CommandLineRunner {
     System.out.println("Se creo la factura: \n" + invoiceDB);
   }
 
+  // Relación de muchos a uno buscando por ID.
   @Transactional
   public void manyToOneFindById() {
     // Agregar una factura a un usuario que ya existe en la Base de Datos.
