@@ -3,8 +3,10 @@ package com.relationship.jpa_relationship;
 import aj.org.objectweb.asm.Opcodes;
 import com.relationship.jpa_relationship.entities.Address;
 import com.relationship.jpa_relationship.entities.Client;
+import com.relationship.jpa_relationship.entities.ClientDetails;
 import com.relationship.jpa_relationship.entities.Invoice;
 import com.relationship.jpa_relationship.repositories.AddressesRepository;
+import com.relationship.jpa_relationship.repositories.ClientDetailsRepository;
 import com.relationship.jpa_relationship.repositories.ClientRepository;
 import com.relationship.jpa_relationship.repositories.InvoiceRepositiry;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -31,6 +33,9 @@ public class JpaRelationshipApplication implements CommandLineRunner {
   @Autowired
   private AddressesRepository addressesRepository;
 
+  @Autowired
+  private ClientDetailsRepository clientDetailsRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(JpaRelationshipApplication.class, args);
 	}
@@ -45,7 +50,9 @@ public class JpaRelationshipApplication implements CommandLineRunner {
     //removeAddressFindById();
     //oneToManyInvoiceBidireccional();
     //oneToManyInvoiceBidireccionalFindById();
-    removeInvoiceBidireccionalFindById();
+    //removeInvoiceBidireccionalFindById();
+    oneToOne();
+    oneToOneFindById();
   }
 
   // Relación de uno a muchos, bidireccional.
@@ -252,5 +259,34 @@ public class JpaRelationshipApplication implements CommandLineRunner {
 
     }, () -> System.out.println("No se encontró al cliente con el ID indicado."));
 
+  }
+
+  // Relación uno a uno unidireccional.
+  @Transactional
+  public void oneToOne() {
+    ClientDetails clientDetails = new ClientDetails(true, 5000);
+    clientDetailsRepository.save(clientDetails);
+
+    Client client = new Client("Eva", "De Wally");
+    client.setClientDetails(clientDetails);
+    clientRepository.save(client);
+
+    System.out.println(client);
+
+  }
+
+  @Transactional
+  public void oneToOneFindById() {
+    Optional<Client> optionalClient = clientRepository.findOne(2);
+
+    optionalClient.ifPresentOrElse(client -> {
+      ClientDetails clientDetails = new ClientDetails(false, 500);
+      clientDetailsRepository.save(clientDetails);
+
+      client.setClientDetails(clientDetails);
+      clientRepository.save(client);
+
+      System.out.println(client);
+    }, () -> System.out.println("No existe el cliente con el ID indicado."));
   }
 }

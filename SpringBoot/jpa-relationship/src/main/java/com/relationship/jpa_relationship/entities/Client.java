@@ -18,6 +18,10 @@ public class Client {
   private String name;
   private String lastname;
 
+  // Las claves foramens son las que nos indican quien es el dueño de la relación, el que la tenga seria el dueño.
+  @OneToOne
+  private ClientDetails clientDetails;
+
   // Creamos la tabla intermedia con sus respectivas columnas.
   // @JoinTable(
   //     name = "tbl_clientes_to_direcciones", // -> Le ponemos nombre a la tabla intermedia.
@@ -47,12 +51,13 @@ public class Client {
   public String getLastname() { return lastname;  }
   public Set<Address> getAddresses() { return addresses; }
   public Set<Invoice> getInvoices() {  return invoices;  }
+  public ClientDetails getClientDetails() { return clientDetails; }
 
   public void setName(String name) {  this.name = name; }
   public void setLastname(String lastname) {  this.lastname = lastname; }
   public void setAddresses(Set<Address> addresses) { this.addresses = addresses; }
   public void setInvoices(Set<Invoice> invoices) { this.invoices = invoices; }
-
+  public void setClientDetails(ClientDetails clientDetails) { this.clientDetails = clientDetails; }
 
   public void addInvoice(Invoice invoice) {
     invoices.add(invoice);
@@ -70,6 +75,7 @@ public class Client {
         "id:" + id +
         ", name:'" + name + '\'' +
         ", lastname:'" + lastname + '\'' +
+        ", clientDetails:'" + clientDetails + '\'' +
         ", addresses:'" + addresses + '\'' +
         ", facturas:'" + invoices + '\'' +
         '}';
