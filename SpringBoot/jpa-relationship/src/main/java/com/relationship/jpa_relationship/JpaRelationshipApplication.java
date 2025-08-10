@@ -7,6 +7,7 @@ import com.relationship.jpa_relationship.entities.Invoice;
 import com.relationship.jpa_relationship.repositories.AddressesRepository;
 import com.relationship.jpa_relationship.repositories.ClientRepository;
 import com.relationship.jpa_relationship.repositories.InvoiceRepositiry;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -43,7 +44,8 @@ public class JpaRelationshipApplication implements CommandLineRunner {
     //removeAddress();
     //removeAddressFindById();
     //oneToManyInvoiceBidireccional();
-    oneToManyInvoiceBidireccionalFindById();
+    //oneToManyInvoiceBidireccionalFindById();
+    removeInvoiceBidireccionalFindById();
   }
 
   // Relación de uno a muchos, bidireccional.
@@ -63,6 +65,44 @@ public class JpaRelationshipApplication implements CommandLineRunner {
     System.out.println(client);
   }
 
+  // Eliminación una factura bidireccional por ID.
+  @Transactional
+  public void removeInvoiceBidireccionalFindById() {
+    Optional<Client> optionalClient = clientRepository.findOne(2);
+
+    optionalClient.ifPresentOrElse(client -> {
+      Invoice invoice1 = new Invoice("Gafas de Sol", 200);
+      Invoice invoice2 = new Invoice("Maleta", 500);
+
+      client.addInvoice(invoice1);
+      client.addInvoice(invoice2);
+
+      Client c = clientRepository.save(client);
+      System.out.println(c);
+
+    }, () -> System.out.println("No se encontró el cliente"));
+
+    // Eliminamos una factura del cliente:
+    Optional<Client> optionalClient1 = clientRepository.findOne(2);
+    optionalClient1.ifPresentOrElse(c -> {
+      // Buscamos la factura.
+      Optional<Invoice> optionalInvoice = invoiceRepositiry.findById(1);
+      optionalInvoice.ifPresentOrElse(invoice -> {
+
+        // Eliminamos en ambos sentidos tanto del cliente como de factura.
+        c.removeInvoice(invoice);
+
+        clientRepository.save(c);
+        System.out.println("Se elimino correctamente la factura indicada.");
+
+      }, () -> System.out.println("No se encontró la factura."));
+
+      System.out.println(c);
+    }, () -> System.out.println("No se encontró el cliente"));
+
+  }
+
+  // Agregar a un usuario una factura de forma bidireccional.
   @Transactional
   public void oneToManyInvoiceBidireccionalFindById() {
     Optional<Client> optionalClient = clientRepository.findOne(2);

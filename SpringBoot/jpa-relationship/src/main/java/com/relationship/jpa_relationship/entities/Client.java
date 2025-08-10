@@ -59,6 +59,11 @@ public class Client {
     invoice.setClient(this);
   }
 
+  public void removeInvoice(Invoice invoice) {
+    this.getInvoices().remove(invoice);
+    invoice.setClient(null);
+  }
+
   @Override
   public String toString() {
     return "{" +

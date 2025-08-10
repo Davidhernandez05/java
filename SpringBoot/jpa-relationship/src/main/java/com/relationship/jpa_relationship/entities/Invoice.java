@@ -2,6 +2,8 @@ package com.relationship.jpa_relationship.entities;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "invoice")
 public class Invoice {
@@ -35,6 +37,18 @@ public class Invoice {
   public void setDescription(String description) {  this.description = description; }
   public void setTotal(Integer total) { this.total = total; }
   public void setClient(Client client) {  this.client = client; }
+
+  @Override
+  public boolean equals(Object o) {
+    if (o == null || getClass() != o.getClass()) return false;
+    Invoice invoice = (Invoice) o;
+    return Objects.equals(id, invoice.id) && Objects.equals(description, invoice.description) && Objects.equals(total, invoice.total);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, description, total);
+  }
 
   @Override
   public String toString() {
