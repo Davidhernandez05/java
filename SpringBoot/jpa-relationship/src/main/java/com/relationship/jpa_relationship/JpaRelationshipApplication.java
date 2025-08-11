@@ -51,8 +51,10 @@ public class JpaRelationshipApplication implements CommandLineRunner {
     //oneToManyInvoiceBidireccional();
     //oneToManyInvoiceBidireccionalFindById();
     //removeInvoiceBidireccionalFindById();
-    oneToOne();
-    oneToOneFindById();
+    //oneToOne();
+    //oneToOneFindById();
+    //oneToOneBidireccional();
+    oneToOneBidireccionalFindById();
   }
 
   // Relación de uno a muchos, bidireccional.
@@ -288,5 +290,31 @@ public class JpaRelationshipApplication implements CommandLineRunner {
 
       System.out.println(client);
     }, () -> System.out.println("No existe el cliente con el ID indicado."));
+  }
+
+  @Transactional
+  public void oneToOneBidireccional() {
+    Client client = new Client("David", "Hernandez");
+    ClientDetails clientDetails = new ClientDetails(true, 1500);
+
+    client.setClientDetails(clientDetails);
+    clientDetails.setClient(client);
+
+    clientRepository.save(client);
+    System.out.println(client);
+  }
+
+  @Transactional
+  public void oneToOneBidireccionalFindById() {
+    Optional<Client> optionalClient = clientRepository.findOne(1);
+
+    optionalClient.ifPresentOrElse(client -> {
+      ClientDetails clientDetails = new ClientDetails(false, 200);
+      client.setClientDetails(clientDetails);
+      clientDetails.setClient(client);
+
+      Client clientBD = clientRepository.save(client);
+      System.out.println(clientBD);
+    }, () -> System.out.println("No se encontró el cliente."));
   }
 }

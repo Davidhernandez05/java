@@ -18,8 +18,8 @@ public class Client {
   private String name;
   private String lastname;
 
-  // Las claves foramens son las que nos indican quien es el dueño de la relación, el que la tenga seria el dueño.
-  @OneToOne
+  // Las claves foramens son las que nos indican quien es el dueño de la relación, el que la tenga sería el dueño.
+  @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "client") // mappedBy = "client" -> Clase padre.
   private ClientDetails clientDetails;
 
   // Creamos la tabla intermedia con sus respectivas columnas.
