@@ -1,22 +1,13 @@
 package com.relationship.jpa_relationship;
 
-import aj.org.objectweb.asm.Opcodes;
-import com.relationship.jpa_relationship.entities.Address;
-import com.relationship.jpa_relationship.entities.Client;
-import com.relationship.jpa_relationship.entities.ClientDetails;
-import com.relationship.jpa_relationship.entities.Invoice;
-import com.relationship.jpa_relationship.repositories.AddressesRepository;
-import com.relationship.jpa_relationship.repositories.ClientDetailsRepository;
-import com.relationship.jpa_relationship.repositories.ClientRepository;
-import com.relationship.jpa_relationship.repositories.InvoiceRepositiry;
-import jakarta.persistence.criteria.CriteriaBuilder;
+import com.relationship.jpa_relationship.entities.*;
+import com.relationship.jpa_relationship.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -36,6 +27,12 @@ public class JpaRelationshipApplication implements CommandLineRunner {
   @Autowired
   private ClientDetailsRepository clientDetailsRepository;
 
+  @Autowired
+  private StudentRepository studentRepository;
+
+  @Autowired
+  private CourseRepository courseRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(JpaRelationshipApplication.class, args);
 	}
@@ -54,7 +51,8 @@ public class JpaRelationshipApplication implements CommandLineRunner {
     //oneToOne();
     //oneToOneFindById();
     //oneToOneBidireccional();
-    oneToOneBidireccionalFindById();
+    //oneToOneBidireccionalFindById();
+    manyToMany();
   }
 
   // Relación de uno a muchos, bidireccional.
@@ -316,5 +314,30 @@ public class JpaRelationshipApplication implements CommandLineRunner {
       Client clientBD = clientRepository.save(client);
       System.out.println(clientBD);
     }, () -> System.out.println("No se encontró el cliente."));
+  }
+
+  // Relación de muchos a muchos.
+  @Transactional
+  public void manyToMany() {
+
+    // Creamos los estudiantes:
+    Student student1 = new Student("David", "Hernandez", true);
+    Student student2 = new Student("Malcolm", "In The Middle", true);
+
+    // Creamos los cursos:
+    Course course1 = new Course("Ing de Sistemas", "Miguel", true);
+    Course course2 = new Course("Física Elemental", "Albert", true);
+    Course course3 = new Course("Political", "Gregorio", true);
+
+    // Les asignamos los cursos a cada estudiante:
+    student1.setCourses(Set.of(course1, course2, course3));
+    student2.setCourses(Set.of(course2));
+
+    // Guardamos los datos de los estudiantes en la BD.
+    studentRepository.saveAll(Set.of(student1, student2));
+
+    // Imprimimos los estudiantes:
+    System.out.println(student1);
+    System.out.println(student2);
   }
 }
