@@ -52,7 +52,8 @@ public class JpaRelationshipApplication implements CommandLineRunner {
     //oneToOneFindById();
     //oneToOneBidireccional();
     //oneToOneBidireccionalFindById();
-    manyToMany();
+    //manyToMany();
+    manyToManyFindById();
   }
 
   // Relación de uno a muchos, bidireccional.
@@ -339,5 +340,23 @@ public class JpaRelationshipApplication implements CommandLineRunner {
     // Imprimimos los estudiantes:
     System.out.println(student1);
     System.out.println(student2);
+  }
+
+  // Relación de muchos a muchos -> Asignamos cursos a un estudiante ya creado en la BD.
+  @Transactional
+  public void manyToManyFindById() {
+
+    Optional<Student> optionalStudent = studentRepository.findById(2);
+
+    optionalStudent.ifPresentOrElse(student -> {
+      Course course1 = new Course("Java", "David", true);
+      Course course2 = new Course("Spring Boot", "Andres", true);
+
+      student.setCourses(Set.of(course1, course2));
+
+      Student studentDB = studentRepository.save(student);
+      System.out.println(studentDB);
+
+    }, () -> System.out.println("No se encontró ningún estudiante con ese ID."));
   }
 }
