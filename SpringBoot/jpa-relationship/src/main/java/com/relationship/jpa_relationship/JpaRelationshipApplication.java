@@ -53,7 +53,10 @@ public class JpaRelationshipApplication implements CommandLineRunner {
     //oneToOneBidireccional();
     //oneToOneBidireccionalFindById();
     //manyToMany();
-    manyToManyFindById();
+    //manyToManyFindById();
+    //manyToManyRemoveFind();
+    manyToManyBidireccional();
+    manyToManyRemoveBidireccional();
   }
 
   // Relación de uno a muchos, bidireccional.
@@ -358,5 +361,77 @@ public class JpaRelationshipApplication implements CommandLineRunner {
       System.out.println(studentDB);
 
     }, () -> System.out.println("No se encontró ningún estudiante con ese ID."));
+  }
+
+  @Transactional
+  public void manyToManyRemoveFind() {
+    Optional<Student> optionalStudent1 = studentRepository.findById(1);
+    Optional<Student> optionalStudent2 = studentRepository.findById(2);
+
+    Student student1 = optionalStudent1.get();
+    Student student2 = optionalStudent2.get();
+
+    Course course1 = new Course("Java", "David", true);
+    Course course2 = new Course("Spring Boot", "Andres", true);
+
+    student1.setCourses(Set.of(course1, course2));
+    student2.setCourses(Set.of(course2));
+
+    studentRepository.saveAll(Set.of(student1, student2));
+    System.out.println(student1);
+    System.out.println(student2);
+
+    Optional<Student> studentOptionalDB = studentRepository.findOneWithCourses(1);
+    studentOptionalDB.ifPresentOrElse(student -> {
+      Student studentDB = studentOptionalDB.get();
+
+      Optional<Course> optionalCourse = courseRepository.findById(2);
+      optionalCourse.ifPresent(course -> {
+        Course courseDB = optionalCourse.get();
+        studentDB.getCourses().remove(courseDB);
+
+        studentRepository.save(studentDB);
+        System.out.println("Se elimino correctamente el curso al estudiante.");
+      });
+
+      System.out.println(student);
+
+    }, () -> System.out.println("No se encontró ningún estudiante con ese ID"));
+  }
+
+  private void manyToManyBidireccional() {
+    Student student1 = new Student("David", "Hernandez", true);
+    Student student2 = new Student("Ricardo", "Hernandez", true);
+
+    Course course1 = new Course("Angular", "Jose", true);
+    Course course2 = new Course("React", "Miguel", true);
+
+    student1.addCourses(course1);
+    student1.addCourses(course2);
+    student2.addCourses(course2);
+
+    studentRepository.saveAll(Set.of(student1, student2));
+
+    System.out.println(student1);
+    System.out.println(student2);
+  }
+
+  public void manyToManyRemoveBidireccional() {
+
+    Optional<Student> optionalStudent = studentRepository.findOneWithCourses(4);
+    optionalStudent.ifPresentOrElse(student -> {
+
+      Optional<Course> optionalCourse = courseRepository.findOneWhitStudents(1);
+      optionalCourse.ifPresentOrElse(course -> {
+
+        student.removeCourses(course);
+        studentRepository.save(student);
+        System.out.println("Se elimino correctamente el curso al estudiante indicado.");
+
+      }, () -> System.out.println("No se encontró el curso."));
+
+      System.out.println(student);
+
+    }, () -> System.out.println("No se encontró el estudiante."));
   }
 }

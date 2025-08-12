@@ -4,6 +4,7 @@ package com.relationship.jpa_relationship.entities;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -18,10 +19,12 @@ public class Student {
   private String lastname;
   private Boolean asset;
 
-  @ManyToMany(cascade = {
-      CascadeType.PERSIST,
-      CascadeType.MERGE
-  })
+  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+  @JoinTable(name = "students_courses",
+      joinColumns = @JoinColumn(name = "student_id"),
+      inverseJoinColumns = @JoinColumn(name = "courses_id"),
+      uniqueConstraints = @UniqueConstraint(columnNames = {"student_id", "courses_id"})
+  )
   private Set<Course> courses;
 
   public Student() {
@@ -46,6 +49,16 @@ public class Student {
   public void setCourses(Set<Course> courses) { this.courses = courses; }
   public void setAsset(Boolean asset) { this.asset = asset; }
 
+  public void addCourses(Course course) {
+    this.courses.add(course);
+    course.getStudents().add(this);
+  }
+
+  public void removeCourses(Course course) {
+    this.courses.remove(course);
+    course.getStudents().remove(this);
+  }
+
   @Override
   public String toString() {
     return "{" +
@@ -55,5 +68,17 @@ public class Student {
         ", asset:" + asset +
         ", courses:" + courses +
         '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (o == null || getClass() != o.getClass()) return false;
+    Student student = (Student) o;
+    return Objects.equals(id, student.id) && Objects.equals(name, student.name) && Objects.equals(lastname, student.lastname) && Objects.equals(asset, student.asset);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, name, lastname, asset);
   }
 }
