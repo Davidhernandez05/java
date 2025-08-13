@@ -11,5 +11,6 @@ public interface ProductService {
   Optional<Product> finfById(Integer id);
 
   Product save(Product product);
-  Optional<Product> delete(Product product);
+  Optional<Product> update(Integer id, Product product);
+  Optional<Product> delete(Integer id);
 }
