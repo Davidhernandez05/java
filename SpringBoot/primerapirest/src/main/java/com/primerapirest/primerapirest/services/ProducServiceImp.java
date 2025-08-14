@@ -45,6 +45,7 @@ public class ProducServiceImp implements ProductService{
       Product productBD = optionalProduct.orElseThrow();
 
       // Agregamos los nuevos valores:
+      productBD.setSku(product.getSku());
       productBD.setName(product.getName());
       productBD.setDescription(product.getDescription());
       productBD.setPrice(product.getPrice());
@@ -69,5 +70,12 @@ public class ProducServiceImp implements ProductService{
 
     return optionalProduct;
   }
+
+  @Override
+  @Transactional(readOnly = true)
+  public boolean existsBySku(String sku) {
+    return productRepository.existsBySku(sku);
+  }
+
 
 }

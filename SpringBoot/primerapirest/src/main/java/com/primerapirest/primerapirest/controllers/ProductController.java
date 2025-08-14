@@ -1,6 +1,7 @@
 package com.primerapirest.primerapirest.controllers;
 
 
+import com.primerapirest.primerapirest.ProductValidation;
 import com.primerapirest.primerapirest.entities.Product;
 import com.primerapirest.primerapirest.services.ProductService;
 import jakarta.validation.Valid;
@@ -24,6 +25,10 @@ public class ProductController {
   @Autowired
   private ProductService service;
 
+  // Esta es una forma:
+  //@Autowired
+  //private ProductValidation validation;
+
   @GetMapping
   public List<Product> list() {
     return service.findAll(); // Listamos todos los productos de la BD.
@@ -43,6 +48,7 @@ public class ProductController {
 
   @PostMapping()
   public ResponseEntity<?> create(@Valid @RequestBody Product product, BindingResult result) {
+    //validation.validate(product, result);
     // Validamos si ocurrió algún error.
     if (result.hasFieldErrors()) {
       return validation(result);
@@ -53,7 +59,7 @@ public class ProductController {
 
   @PutMapping("/{id}")
   public ResponseEntity<?> update(@Valid @RequestBody Product product, BindingResult result,  @PathVariable Integer id) {
-    
+    //validation.validate(product, result);
     if (result.hasFieldErrors()) {
       return validation(result);
     }
