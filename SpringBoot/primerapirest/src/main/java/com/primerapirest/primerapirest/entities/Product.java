@@ -14,15 +14,17 @@ public class Product {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
-  @NotEmpty // -> Por que es un string.
+  // Los mensajes de error personalizados se pueden hacer desde aqui directamente o para que sea más limpio desde un archivo properties en recursos.
+  @NotEmpty(message = "no puede estar vacío por favor validar y volver a intentar.") // -> Porque es un string.
   @Size(min = 2) // -> Esto es muy importante para asignar un mínimo y maximo de un password
   private String name;
 
+  // Asi seria desde un archivo properties:
   @Min(50)
-  @NotNull // -> Esta funciona para todos los demás tipos de datos.
+  @NotNull(message = "{NotNull.product.price}") // -> Esta funciona para todos los demás tipos de datos.
   private Integer price;
 
-  @NotBlank // -> Es un poco más completa que NotEmpty, y también sirve para Strings,
+  @NotBlank(message = "{NotBlank.product.description}") // -> Es un poco más completa que NotEmpty, y también sirve para Strings,
   // Hace lo mismo que el NotEmpty, pero le añade que el campo no puede estar vacío.
   private String description;
 
