@@ -3,13 +3,18 @@ package com.primerapirest.primerapirest.controllers;
 
 import com.primerapirest.primerapirest.entities.Product;
 import com.primerapirest.primerapirest.services.ProductService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.naming.Binding;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -37,13 +42,21 @@ public class ProductController {
   }
 
   @PostMapping()
-  public ResponseEntity<Product> create(@RequestBody Product product) {
+  public ResponseEntity<?> create(@Valid @RequestBody Product product, BindingResult result) {
+    // Validamos si ocurrió algún error.
+    if (result.hasFieldErrors()) {
+      return validation(result);
+    }
     //RequestBody -> para leer datos de un Json e insertarlos en product
     return ResponseEntity.status(HttpStatus.CREATED).body(service.save(product)); // Crea el nuevo producto con los datos en json.
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity<Product> update(@PathVariable Integer id, @RequestBody Product product) {
+  public ResponseEntity<?> update(@Valid @RequestBody Product product, BindingResult result,  @PathVariable Integer id) {
+    
+    if (result.hasFieldErrors()) {
+      return validation(result);
+    }
 
     Optional<Product> productOptional = service.update(id, product);
     if (productOptional.isPresent()) {
@@ -65,5 +78,19 @@ public class ProductController {
     }
     return ResponseEntity.notFound().build();
 
+  }
+
+  // Nos retorna un mensaje para el usuario en caso de que se genere algún error al momento de ingresar los datos.
+  private ResponseEntity<?> validation(BindingResult result) {
+    Map<String, String> errors = new HashMap<>();
+
+    result.getFieldErrors().forEach(error -> {
+      errors.put(error.getField(), "El campo: " + error.getField() + " " + error.getDefaultMessage());
+
+      // error.getField() -> Nos da el nombre del campo.
+      // error.getDefaultMessage() -> Nos da el mensaje de error.
+    });
+
+    return ResponseEntity.badRequest().body(errors);
   }
 }
