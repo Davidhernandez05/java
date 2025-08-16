@@ -31,7 +31,7 @@ public class UserController {
   }
 
   // Creamos un usuario nuevo.
-  @PutMapping()
+  @PostMapping()
   public ResponseEntity<?> create(@Valid @RequestBody User user) {
     return ResponseEntity.status(HttpStatus.CREATED).body(service.save(user));
   }

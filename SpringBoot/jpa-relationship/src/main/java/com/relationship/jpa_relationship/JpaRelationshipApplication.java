@@ -41,7 +41,7 @@ public class JpaRelationshipApplication implements CommandLineRunner {
   public void run(String... args) throws Exception {
     //manyToOne();
     //manyToOneFindById();
-    //oneToMany();
+    oneToMany();
     //oneToManyFindById();
     //removeAddress();
     //removeAddressFindById();

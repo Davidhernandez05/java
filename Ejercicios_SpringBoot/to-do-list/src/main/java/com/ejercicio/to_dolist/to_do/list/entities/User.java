@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -24,6 +26,17 @@ public class User {
   @NotBlank(message = "El email no puede estar vacío.")
   private String email;
 
-  @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-  private List<TaskList> taskList;
+  @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "user")
+  private Set<TaskList> taskList;
+
+  public User () {
+    taskList = new HashSet<>();
+  }
+
+  public User(String name, String lastname, String email) {
+    this();
+    this.setName(name);
+    this.setLastname(lastname);
+    this.setEmail(email);
+  }
 }
