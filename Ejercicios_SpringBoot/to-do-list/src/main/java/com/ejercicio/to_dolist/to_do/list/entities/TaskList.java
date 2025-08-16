@@ -3,12 +3,12 @@ package com.ejercicio.to_dolist.to_do.list.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Objects;
 
 @Entity
+@Data
 @Table(name = "task_list")
 public class TaskList {
 
@@ -24,49 +24,10 @@ public class TaskList {
   private Boolean completed;
 
   @ManyToOne
+  @Getter(AccessLevel.NONE) // Esto hace que no cree el getter en este campo.
+  @EqualsAndHashCode.Exclude // Hace que el HashCode no tenga este valor
+  @ToString.Exclude //Hace que el toString no tenga este valor
   @JoinColumn(name = "user_id")
   private User user;
 
-  public TaskList() {
-
-  }
-
-  public TaskList(String title, String task, Boolean completed) {
-    this.setTitle(title);
-    this.setTask(task);
-    this.setCompleted(completed);
-  }
-
-  public Integer getId() {  return id;  }
-  public String getTitle() {  return title; }
-  public Boolean getCompleted() { return completed; }
-  public String getTask() { return task;  }
-  public User getUser() { return user;  }
-
-  public void setTitle(String title) {  this.title = title; }
-  public void setTask(String task) {  this.task = task; }
-  public void setCompleted(Boolean completed) { this.completed = completed; }
-  public void setUser(User user) {  this.user = user; }
-
-  @Override
-  public boolean equals(Object o) {
-    if (o == null || getClass() != o.getClass()) return false;
-    TaskList taskList = (TaskList) o;
-    return Objects.equals(id, taskList.id) && Objects.equals(title, taskList.title) && Objects.equals(task, taskList.task) && Objects.equals(completed, taskList.completed);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, title, task, completed);
-  }
-
-  @Override
-  public String toString() {
-    return "{" +
-        "id=" + id +
-        ", title='" + title + '\'' +
-        ", task='" + task + '\'' +
-        ", completed=" + completed +
-        '}';
-  }
 }
