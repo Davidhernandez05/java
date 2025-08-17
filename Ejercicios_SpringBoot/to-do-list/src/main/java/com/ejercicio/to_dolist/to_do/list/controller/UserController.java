@@ -39,15 +39,17 @@ public class UserController {
 
   @GetMapping("/{id}")
   public ResponseEntity<?> view (@PathVariable Integer id) {
-    Optional<User> optionalUser = service.findById(id);
+    return service.findById(id);
 
-    if (optionalUser.isPresent()){
-      return ResponseEntity.ok().body(optionalUser.orElseThrow());
-    }
+  }
 
-    // Creamos un mensaje desde aquí en caso de que no se encuentre el ID en la BD.
-    Map<String, String> respuesta = new HashMap<>();
-    respuesta.put("Mensaje: ", "No se encontró ningún usuario con el id " + id + ".");
-    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(respuesta);
+  @DeleteMapping("/{id}")
+  public ResponseEntity<?> deleteUser(@PathVariable Integer id) {
+    return service.delete(id);
+  }
+
+  @PutMapping("/{id}")
+  public ResponseEntity<?> updateUser(@Valid @RequestBody User user, @PathVariable Integer id) {
+    return service.update(id, user);
   }
 }

@@ -3,10 +3,13 @@ package com.ejercicio.to_dolist.to_do.list.services;
 import com.ejercicio.to_dolist.to_do.list.entities.User;
 import com.ejercicio.to_dolist.to_do.list.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -23,8 +26,16 @@ public class UserServiceImpl implements UserService{
 
   @Transactional(readOnly = true)
   @Override
-  public Optional<User> findById(Integer id) {
-    return userRepository.findById(id);
+  public ResponseEntity<?> findById(Integer id) {
+    Optional<User> optionalUser = userRepository.findById(id);
+
+    if (optionalUser.isPresent()) {
+      User user = optionalUser.get();
+
+      return ResponseEntity.ok().body(user);
+    }
+
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("Mensaje: ", "No se encontró ningún usuario existente con el ID: " + id));
   }
 
   @Transactional
@@ -35,7 +46,7 @@ public class UserServiceImpl implements UserService{
 
   @Transactional
   @Override
-  public Optional<User> update(Integer id, User user) {
+  public ResponseEntity<?> update(Integer id, User user) {
     Optional<User> optionalUser = userRepository.findById(id);
 
     if (optionalUser.isPresent()) {
@@ -46,23 +57,22 @@ public class UserServiceImpl implements UserService{
       userDB.setEmail(user.getEmail());
 
       System.out.println("Se actualizo correctamente el usuario.");
-
-      return Optional.of(userRepository.save(userDB));
+      return ResponseEntity.ok().body(userRepository.save(userDB));
     }
-    return optionalUser;
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("Mensaje: ", "No se encontró ningún usuario con el ID: " + id));
   }
 
   @Transactional
   @Override
-  public Optional<User> delete(Integer id) {
+  public ResponseEntity<?> delete(Integer id) {
     Optional<User> optionalUser = userRepository.findById(id);
 
-    optionalUser.ifPresentOrElse(user -> {
+    if (optionalUser.isPresent()) {
+      User user = optionalUser.get();
       userRepository.delete(user);
-      System.out.println("Se elimino correctamente el usuario: " + user);
 
-    }, () -> System.out.println("El usuario no existe."));
-
-    return optionalUser;
+      return ResponseEntity.ok().body(Map.of("Mensaje: ", "Se elimino correctamente el usuario con ID: " + id));
+    }
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("Mensaje:", "No se encontró ninguna usuario con el ID: " + id));
   }
 }
