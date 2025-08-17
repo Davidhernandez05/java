@@ -11,9 +11,9 @@ import java.util.Optional;
 public interface TaskListService {
 
   List<TaskList> findAll();
-  Optional<TaskList> findById(Integer id);
+  ResponseEntity<?> findById(Integer id);
 
   ResponseEntity<User> save(TaskList task, Integer id);
-  Optional<TaskList> update(Integer id, TaskList task);
+  ResponseEntity<?> update(Integer id, TaskList task);
   ResponseEntity<?> delete(Integer id);
 }

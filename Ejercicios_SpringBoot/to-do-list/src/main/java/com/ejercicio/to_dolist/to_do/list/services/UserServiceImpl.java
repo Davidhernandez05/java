@@ -52,9 +52,25 @@ public class UserServiceImpl implements UserService{
     if (optionalUser.isPresent()) {
       User userDB = optionalUser.orElseThrow();
 
-      userDB.setName(user.getName());
-      userDB.setLastname(user.getLastname());
-      userDB.setEmail(user.getEmail());
+      if (user.getName().isEmpty()) {
+        userDB.setName(userDB.getName());
+      }else {
+        userDB.setName(user.getName());
+      }
+
+      if (user.getLastname().isEmpty()) {
+        userDB.setLastname(userDB.getLastname());
+      }
+      else {
+        userDB.setLastname(user.getLastname());
+      }
+
+      if (user.getEmail().isEmpty()) {
+        userDB.setEmail(userDB.getEmail());
+      }
+      else {
+        userDB.setEmail(user.getEmail());
+      }
 
       System.out.println("Se actualizo correctamente el usuario.");
       return ResponseEntity.ok().body(userRepository.save(userDB));

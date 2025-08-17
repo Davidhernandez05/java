@@ -28,13 +28,18 @@ public class TaskController {
   }
 
   @GetMapping("/{id}")
-  public Optional<?> view(@PathVariable Integer id) {
+  public ResponseEntity<?> view(@PathVariable Integer id) {
     return service.findById(id);
   }
 
   @DeleteMapping("/{id}")
   public ResponseEntity<?> deleteTask(@PathVariable Integer id) {
     return service.delete(id);
+  }
+
+  @PutMapping("/{id}")
+  public ResponseEntity<?> updateTask(@RequestBody TaskList task, @PathVariable Integer id) {
+    return service.update(id, task);
   }
 
 }

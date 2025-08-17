@@ -49,7 +49,7 @@ public class UserController {
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity<?> updateUser(@Valid @RequestBody User user, @PathVariable Integer id) {
+  public ResponseEntity<?> updateUser(@RequestBody User user, @PathVariable Integer id) {
     return service.update(id, user);
   }
 }

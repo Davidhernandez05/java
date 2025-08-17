@@ -23,9 +23,6 @@ public class TaskListServiceImpl implements TaskListService {
   @Autowired
   private UserRepository userRepository;
 
-  @Autowired
-  private TaskListRepository taskListRepository;
-
   @Override
   @Transactional(readOnly = true)
   public List<TaskList> findAll() {
@@ -34,8 +31,15 @@ public class TaskListServiceImpl implements TaskListService {
 
   @Transactional(readOnly = true)
   @Override
-  public Optional<TaskList> findById(Integer id) {
-    return repository.findById(id);
+  public ResponseEntity<?> findById(Integer id) {
+    Optional<TaskList> optionalTaskList = repository.findById(id);
+
+    if (optionalTaskList.isPresent()) {
+      TaskList task = optionalTaskList.get();
+      return ResponseEntity.ok().body(task);
+    }
+
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("Mensaje: ", "No se encontró ninguna tarea asignada al ID: " + id));
   }
 
   @Transactional
@@ -60,14 +64,40 @@ public class TaskListServiceImpl implements TaskListService {
 
   @Override
   @Transactional
-  public Optional<TaskList> update(Integer id, TaskList task) {
-    return Optional.empty();
+  public ResponseEntity<?> update(Integer id, TaskList task) {
+    Optional<TaskList> optionalTaskList = repository.findById(id);
+
+    if (optionalTaskList.isPresent()) {
+      TaskList newTask = optionalTaskList.get();
+
+      if (task.getTitle().isEmpty() || task.getTitle() == null) {
+        newTask.setTitle(newTask.getTitle());
+      }else {
+        newTask.setTitle(task.getTitle());
+      }
+
+      if (task.getTask().isEmpty() || task.getTask() == null) {
+        newTask.setTask(newTask.getTask());
+      }else {
+        newTask.setTask(task.getTask());
+      }
+
+      if (task.getCompleted().describeConstable().isEmpty() || task.getCompleted() == null) {
+        newTask.setCompleted(newTask.getCompleted());
+      }else {
+        newTask.setCompleted(task.getCompleted());
+      }
+
+      return ResponseEntity.ok().body(repository.save(newTask));
+    }
+
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("Mensaje: ", "No se encontró ninguna tarea con el ID: " + id));
   }
 
   @Override
   @Transactional
   public ResponseEntity<?> delete(Integer id) {
-    Optional<TaskList> optionalTaskList = taskListRepository.findById(id);
+    Optional<TaskList> optionalTaskList = repository.findById(id);
 
     if (optionalTaskList.isPresent()) {
       TaskList task = optionalTaskList.get();
