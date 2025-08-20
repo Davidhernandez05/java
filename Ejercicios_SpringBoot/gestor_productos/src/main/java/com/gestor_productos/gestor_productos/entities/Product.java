@@ -15,13 +15,13 @@ public class Product {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
-  @NotNull
+  @NotNull(message = "el nombre no puede ser null")
   private String name;
 
-  @Min(1)
+  @Min(value = 1, message = "precio no valido.")
   private Double price;
 
-  @Min(1)
+  @Min(value = 1, message = "El producto debe ser mínimo 1")
   private Integer stock;
   private Boolean disponibilidad;
 
@@ -32,11 +32,4 @@ public class Product {
   @JoinColumn(name = "category_id")
   private Category category;
 
-
-  public Product (String name, Double price, Integer stock, Boolean disponibilidad) {
-    this.setName(name);
-    this.setStock(stock);
-    this.setPrice(price);
-    this.setDisponibilidad(disponibilidad);
-  }
 }
