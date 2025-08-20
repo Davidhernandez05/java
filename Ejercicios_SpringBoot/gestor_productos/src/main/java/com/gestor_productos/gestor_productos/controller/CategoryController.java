@@ -22,6 +22,11 @@ public class CategoryController {
     return categoryService.findAll();
   }
 
+  @GetMapping("/{id}")
+  public ResponseEntity<?> findById(@PathVariable Integer id) {
+    return categoryService.findById(id);
+  }
+
   @PostMapping()
   public ResponseEntity<?> saveCategory(@Valid @RequestBody Category category) {
     return categoryService.save(category);
@@ -31,6 +36,11 @@ public class CategoryController {
   @DeleteMapping("{id}")
   public ResponseEntity<?> deleteCategory(@PathVariable Integer id) {
     return categoryService.delete(id);
+  }
+
+  @PutMapping("/{id}")
+  public ResponseEntity<?> updateCategory(@Valid @RequestBody Category category, @PathVariable Integer id) {
+    return categoryService.update(id, category);
   }
 
 }

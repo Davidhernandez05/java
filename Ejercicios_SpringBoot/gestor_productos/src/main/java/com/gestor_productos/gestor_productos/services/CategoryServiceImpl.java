@@ -24,7 +24,14 @@ public class CategoryServiceImpl implements CategoryService{
 
   @Override
   public ResponseEntity<?> findById(Integer id) {
-    return null;
+    Optional<Category> optionalCategory = categoryRepository.findById(id);
+
+    if (optionalCategory.isPresent()) {
+      Category category = optionalCategory.get();
+      return ResponseEntity.ok().body(category);
+    }
+
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("Mensaje; ", "No se encontró ninguna categoria con el ID: " +  id));
   }
 
   @Override
@@ -40,7 +47,19 @@ public class CategoryServiceImpl implements CategoryService{
 
   @Override
   public ResponseEntity<?> update(Integer id, Category category) {
-    return null;
+    Optional<Category> optionalCategory = categoryRepository.findById(id);
+
+    if (optionalCategory.isPresent()) {
+      Category categoryDb = optionalCategory.get();
+
+      categoryDb.setName(category.getName());
+      categoryDb.setDescription(category.getDescription());
+      categoryRepository.save(categoryDb);
+
+      return ResponseEntity.ok().body(categoryDb);
+    }
+
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("Mensaje: ", "No se encontró ninguna categoria con el id: " + id));
   }
 
   @Override
