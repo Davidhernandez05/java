@@ -1,6 +1,8 @@
 package com.gestor_productos.gestor_productos.controller;
 
+import com.gestor_productos.gestor_productos.dto.CategoryDto;
 import com.gestor_productos.gestor_productos.entities.Category;
+import com.gestor_productos.gestor_productos.repositories.CategoryRepository;
 import com.gestor_productos.gestor_productos.services.CategoryService;
 import com.gestor_productos.gestor_productos.services.CategoryServiceImpl;
 import jakarta.validation.Valid;
@@ -17,6 +19,9 @@ public class CategoryController {
   @Autowired
   private CategoryServiceImpl categoryService;
 
+  @Autowired
+  private CategoryRepository categoryRepository;
+
   @GetMapping()
   public List<Category> list() {
     return categoryService.findAll();
@@ -24,7 +29,10 @@ public class CategoryController {
 
   @GetMapping("/{id}")
   public ResponseEntity<?> findById(@PathVariable Integer id) {
-    return categoryService.findById(id);
+
+    Category category = categoryRepository.getCategoryFindById(id);
+    return categoryService.convertToDto(category, id);
+
   }
 
   @PostMapping()

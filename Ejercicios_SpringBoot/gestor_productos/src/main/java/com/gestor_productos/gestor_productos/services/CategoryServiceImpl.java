@@ -1,5 +1,6 @@
 package com.gestor_productos.gestor_productos.services;
 
+import com.gestor_productos.gestor_productos.dto.CategoryDto;
 import com.gestor_productos.gestor_productos.entities.Category;
 import com.gestor_productos.gestor_productos.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,5 +75,19 @@ public class CategoryServiceImpl implements CategoryService{
 
     }
     return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("Mensaje: ", "No se encontró ninguna categoria con el id: " + id));
+  }
+
+  public ResponseEntity<?> convertToDto(Category category, Integer id) {
+
+    if (category == null) {
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("Mensaje:", "No se encontró ninguna categoria con el ID: " +  id));
+    }
+
+    CategoryDto dto = new CategoryDto();
+    dto.setId(category.getId());
+    dto.setName(category.getName());
+    dto.setProduct(category.getProduct());
+
+    return ResponseEntity.ok(dto);
   }
 }
