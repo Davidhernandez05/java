@@ -25,7 +25,7 @@ public class Product {
   private Integer stock;
   private Boolean disponibilidad;
 
-  @OneToOne()
+  @ManyToOne()
   @Getter(AccessLevel.NONE)
   @EqualsAndHashCode.Exclude
   @ToString.Exclude
