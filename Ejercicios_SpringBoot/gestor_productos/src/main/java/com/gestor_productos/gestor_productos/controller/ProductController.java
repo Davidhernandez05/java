@@ -1,6 +1,7 @@
 package com.gestor_productos.gestor_productos.controller;
 
 import com.gestor_productos.gestor_productos.entities.Product;
+import com.gestor_productos.gestor_productos.repositories.ProductRepository;
 import com.gestor_productos.gestor_productos.services.ProductServiceImpl;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class ProductController {
   @Autowired
   private ProductServiceImpl productService;
 
+  @Autowired
+  private ProductRepository productRepository;
+
 
   @GetMapping
   public List<Product> listProducts() {
@@ -26,7 +30,9 @@ public class ProductController {
 
   @GetMapping("/{id}")
   public ResponseEntity<?> productById(@PathVariable Integer id){
-    return productService.findById(id);
+
+    Product product = productRepository.getProductFindById(id);
+    return productService.convertToDto(product, id);
   }
 
   @PostMapping("/{id}")

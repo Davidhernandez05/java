@@ -7,6 +7,6 @@ public class ProductDto {
 
   private Integer id;
   private String name;
-  private Integer price;
+  private Double price;
 
 }

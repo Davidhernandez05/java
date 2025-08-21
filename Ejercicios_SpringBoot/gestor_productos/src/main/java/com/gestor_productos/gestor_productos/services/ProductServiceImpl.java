@@ -1,5 +1,6 @@
 package com.gestor_productos.gestor_productos.services;
 
+import com.gestor_productos.gestor_productos.dto.ProductDto;
 import com.gestor_productos.gestor_productos.entities.Category;
 import com.gestor_productos.gestor_productos.entities.Product;
 import com.gestor_productos.gestor_productos.repositories.CategoryRepository;
@@ -93,5 +94,20 @@ public class ProductServiceImpl implements ProductService{
     }
 
     return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("Mensaje: ", "No se encontró ningún producto con el ID: " + id));
+  }
+
+  @Transactional(readOnly = true)
+  public ResponseEntity<?> convertToDto(Product product, Integer id) {
+
+    if (product == null) {
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("Mensaje: ", "No se encontró ningún producto con el ID: " + id));
+    }
+
+    ProductDto dto = new ProductDto();
+    dto.setId(product.getId());
+    dto.setName(product.getName());
+    dto.setPrice(product.getPrice());
+
+    return ResponseEntity.ok(dto);
   }
 }
