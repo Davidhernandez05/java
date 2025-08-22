@@ -7,6 +7,6 @@ import org.springframework.util.StringUtils;
 public class RequiredValidation implements ConstraintValidator<IsRequired, String> {
   @Override
   public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-    return StringUtils.hasText(s);
+    return StringUtils.hasText(s); // -> Valida si tiene texto o no.
   }
 }
