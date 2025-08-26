@@ -1,6 +1,10 @@
 package com.primerapirest.primerapirest.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 import java.util.List;
@@ -15,8 +19,15 @@ public class User {
   private Integer id;
 
   @Column(unique = true) // Para que sean valores unicos.
+  @Size(
+      min = 4,
+      message = "El mínimo de caracteres para el username es de 4 por favor validar."
+  )
+  @NotEmpty(message = "Username no valido intentalo nuevamente.")
   private String username;
 
+  @Size(min = 8,max = 10, message = "La contraseña debe tener un mínimo de 8 caracteres y un maximo de 10.")
+  @NotEmpty(message = "Contraseña no valida intenta nuevamente.")
   private String password;
 
   @ManyToMany
