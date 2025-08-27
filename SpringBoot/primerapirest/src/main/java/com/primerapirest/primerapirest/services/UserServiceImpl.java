@@ -42,8 +42,8 @@ public class UserServiceImpl implements UserService{
 
     optionalRoleUser.ifPresent(roles::add);
 
-    // Si tiene el role admin lo va a guardar y va a quedar con ambos roles.
-    if (user.getAdmin()){
+    // Si tiene él role admin lo va a guardar y va a quedar con ambos roles.
+    if (user.getAdmin() != null && user.getAdmin() == true){
       Optional<Role> optionalRoleAdmin = roleRepository.findByName("ROLE_ADMIN");
       optionalRoleAdmin.ifPresent(roles::add);
     }

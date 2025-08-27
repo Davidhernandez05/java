@@ -1,8 +1,7 @@
 package com.primerapirest.primerapirest.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
@@ -26,8 +25,9 @@ public class User {
   @NotEmpty(message = "Username no valido intentalo nuevamente.")
   private String username;
 
-  @Size(min = 8,max = 10, message = "La contraseña debe tener un mínimo de 8 caracteres y un maximo de 10.")
+  @Size(min = 2, message = "La contraseña debe tener un mínimo de 8 caracteres y un maximo de 10.")
   @NotEmpty(message = "Contraseña no valida intenta nuevamente.")
+  @JsonProperty(access = JsonProperty.Access.WRITE_ONLY) // Hace que solamente se muestre al momento de ingresar los datos.
   private String password;
 
   @ManyToMany
@@ -39,6 +39,15 @@ public class User {
   )
   private List<Role> roles;
 
+  private Boolean enabled;
+
+  @PrePersist
+  public void prePersist() {
+    enabled = true;
+  }
+
   @Transient //-> Le dice a jpa que este campo no es de la tabla solamente de la clase.
+  @JsonProperty(access = JsonProperty.Access.WRITE_ONLY) // Hace que solamente se muestre al momento de ingresar los datos.
   private Boolean admin;
+
 }
