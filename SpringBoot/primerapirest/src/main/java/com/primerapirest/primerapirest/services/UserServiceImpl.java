@@ -52,4 +52,9 @@ public class UserServiceImpl implements UserService{
     user.setPassword(passwordEncoder.encode(user.getPassword())); // Esto nos permite encriptar la contraseña y guardarla.
     return userRepository.save(user);
   }
+
+  @Override
+  public Boolean existsByUsername(String username) {
+    return userRepository.existsByUsername(username);
+  }
 }

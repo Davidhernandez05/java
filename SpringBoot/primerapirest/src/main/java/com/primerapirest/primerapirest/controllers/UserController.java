@@ -25,7 +25,7 @@ public class UserController {
     return userService.findAll();
   }
 
-  @PostMapping()
+  @PostMapping
   public ResponseEntity<?> save(@Valid @RequestBody User user, BindingResult result) {
 
     if (result.hasFieldErrors()){
