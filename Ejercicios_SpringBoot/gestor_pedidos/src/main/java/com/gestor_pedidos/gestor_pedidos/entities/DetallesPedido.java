@@ -1,0 +1,27 @@
+package com.gestor_pedidos.gestor_pedidos.entities;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import lombok.Data;
+
+import java.util.List;
+
+@Entity
+@Data
+@Table(name = "Detalles")
+public class DetallesPedido {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
+
+  @ManyToOne
+  private Pedido pedido;
+
+  @ManyToOne
+  private List<Producto> productos;
+
+  @Min(value = 1, message = "Cantidad no valida.")
+  private Integer cantidad;
+  private Double subTotal;
+}
