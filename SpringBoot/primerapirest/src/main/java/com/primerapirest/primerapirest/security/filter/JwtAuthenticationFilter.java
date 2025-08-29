@@ -13,17 +13,17 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import javax.crypto.SecretKey;
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.primerapirest.primerapirest.security.TokenJwtConfig.*;
 
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
   private AuthenticationManager authenticationManager;
 
-  private static final SecretKey SECRET_KEY = Jwts.SIG.HS256.key().build(); // -> Nos crea la llave (firma) secreta.
 
   public JwtAuthenticationFilter(AuthenticationManager authenticationManager) {
    this.authenticationManager = authenticationManager;
@@ -55,10 +55,12 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     String username = user.getUsername();
     String token = Jwts.builder()
         .subject(username)
+        .expiration(new Date(System.currentTimeMillis() + 3600000)) // Fecha actual más 1 hora. -> Esto es el tiempo en el que expira el token.
+        .issuedAt(new Date())
         .signWith(SECRET_KEY)
         .compact();
 
-    response.addHeader("Authentication", "Bearer " + token);
+    response.addHeader(HEADER_AUTHORIZATION, PREFIX_TOKEN + token);
     Map<String, String> body = new HashMap<>();
     body.put("Token: ", token);
     body.put("Username: ", username);
