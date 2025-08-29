@@ -48,6 +48,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     return authenticationManager.authenticate(authenticationToken);
   }
 
+  // Creación del token en caso de que el acceso sea correcto.
   @Override
   protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
 
@@ -67,7 +68,20 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     body.put("Message: ", String.format("Hola %s, has iniciado sesión con éxito.", username));
 
     response.getWriter().write(new ObjectMapper().writeValueAsString(body));
-    response.setContentType("application/json");
+    response.setContentType(CONTENT_TYPE);
     response.setStatus(200);
+  }
+
+  // Mensajes en caso de que el acceso sea incorrecto.
+  @Override
+  protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
+    Map<String, String> body = new HashMap<>();
+
+    body.put("Message:", "Error en la autenticación: Username o password incorrectos!.");
+    body.put("Error: ", failed.getMessage());
+
+    response.getWriter().write(new ObjectMapper().writeValueAsString(body));
+    response.setStatus(401);
+    response.setContentType(CONTENT_TYPE);
   }
 }
