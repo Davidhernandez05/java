@@ -1,6 +1,7 @@
 package com.primerapirest.primerapirest.security;
 
 import com.primerapirest.primerapirest.security.filter.JwtAuthenticationFilter;
+import com.primerapirest.primerapirest.security.filter.JwtValidationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.graphql.GraphQlProperties;
 import org.springframework.context.annotation.Bean;
@@ -40,9 +41,9 @@ public class SpringSecurityConfig {
         .authorizeHttpRequests(authz -> authz
             .requestMatchers(HttpMethod.GET, "/users").permitAll()
             .requestMatchers(HttpMethod.POST, "/users/register").permitAll()
-            .anyRequest().authenticated()
-        )
-        .addFilterBefore(new JwtAuthenticationFilter(authenticationManager), UsernamePasswordAuthenticationFilter.class)
+            .anyRequest().authenticated())
+        .addFilter(new JwtAuthenticationFilter(authenticationManager()))
+        .addFilter(new JwtValidationFilter(authenticationManager()))
         .csrf(csrf -> csrf.disable()) // Deshabilitamos CSRF porque usamos JWT (stateless)
         .sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .build();
