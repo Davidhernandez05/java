@@ -15,6 +15,11 @@ public class IsExistsBDValidation implements ConstraintValidator<IsExistsDB, Str
   // Nos permite validar su un campo ya existe en la BD:
   @Override
   public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
+
+    if (service == null) {
+      return true;
+    }
+
     return !service.existsBySku(s);
   }
 }
