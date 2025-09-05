@@ -36,11 +36,16 @@ public class SpringSecurityConfig {
 
   // Al hacer esto nos da acceso publico a todo lo que esta en la URL indicada.
   @Bean
-  SecurityFilterChain filterChain(HttpSecurity http, AuthenticationManager authenticationManager) throws Exception {
-    return http
-        .authorizeHttpRequests(authz -> authz
+  SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    return http.authorizeHttpRequests((authz) -> authz
             .requestMatchers(HttpMethod.GET, "/users").permitAll()
             .requestMatchers(HttpMethod.POST, "/users/register").permitAll()
+            .requestMatchers(HttpMethod.POST, "/users").hasRole("ADMIN")
+
+            .requestMatchers(HttpMethod.GET, "/api/products", "/api/products/{id}").hasAnyRole("ADMIN", "USER")
+            .requestMatchers(HttpMethod.POST, "/api/products").hasRole("ADMIN")
+            .requestMatchers(HttpMethod.PUT, "/api/products/{id}").hasRole("ADMIN")
+            .requestMatchers(HttpMethod.DELETE, "/api/products/{id}").hasRole("ADMIN")
             .anyRequest().authenticated())
         .addFilter(new JwtAuthenticationFilter(authenticationManager()))
         .addFilter(new JwtValidationFilter(authenticationManager()))
