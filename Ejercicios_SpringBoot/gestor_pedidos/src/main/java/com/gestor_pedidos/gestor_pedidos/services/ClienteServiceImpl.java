@@ -51,7 +51,7 @@ public class ClienteServiceImpl implements ClienteService {
       Cliente clienteDB = optionalCliente.get();
       clienteDB.setName(cliente.getName());
       clienteDB.setEmail(cliente.getEmail());
-      
+
       return ResponseEntity.ok().body(clienteRepository.save(clienteDB));
     }
 
