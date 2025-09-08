@@ -45,7 +45,17 @@ public class ClienteServiceImpl implements ClienteService {
   @Override
   @Transactional
   public ResponseEntity<?> update(Integer id, Cliente cliente) {
-    return null;
+    Optional<Cliente> optionalCliente = clienteRepository.findById(id);
+
+    if (optionalCliente.isPresent()) {
+      Cliente clienteDB = optionalCliente.get();
+      clienteDB.setName(cliente.getName());
+      clienteDB.setEmail(cliente.getEmail());
+      
+      return ResponseEntity.ok().body(clienteRepository.save(clienteDB));
+    }
+
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("Mensaje: ", "No se encontró ningún cliente con el id: " + id));
   }
 
   @Override
