@@ -37,7 +37,7 @@ public class PedidosServiceImpl implements PedidosService{
 
   @Override
   public ResponseEntity<?> save(Pedido pedido) {
-    return null;
+    return ResponseEntity.ok().body(pedidoRepository.save(pedido));
   }
 
   @Override
@@ -47,6 +47,14 @@ public class PedidosServiceImpl implements PedidosService{
 
   @Override
   public ResponseEntity<?> delete(Integer id) {
-    return null;
+    Optional<Pedido> optionalPedido = pedidoRepository.findById(id);
+
+    if (optionalPedido.isPresent()) {
+      Pedido pedido = optionalPedido.get();
+      pedidoRepository.delete(pedido);
+      return ResponseEntity.status(HttpStatus.NO_CONTENT).body(Map.of("Mensaje: ", "Se elimino correctamente el pedido con id: " + id));
+    }
+
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("Mensaje: ", "No se encontró ningún pedido con el id: " + id));
   }
 }
