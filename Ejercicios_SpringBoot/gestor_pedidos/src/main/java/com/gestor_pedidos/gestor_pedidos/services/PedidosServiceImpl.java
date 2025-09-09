@@ -32,7 +32,7 @@ public class PedidosServiceImpl implements PedidosService{
       return ResponseEntity.ok().body(pedido);
     }
 
-    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("Mensaje: ", "No se encontro ningun pedido con el id: " + id));
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("Mensaje: ", "No se encontró ningún pedido con el id: " + id));
   }
 
   @Override

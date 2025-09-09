@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin(originPatterns = "*", origins = "http://localhost:4200") // -> Cors -> Dar acceso a nuestro backend.
 @RestController
 @RequestMapping("/users")
 public class UserController {
