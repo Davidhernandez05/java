@@ -1,6 +1,6 @@
 package com.gestor_pedidos.gestor_pedidos.controllers;
 
-import com.gestor_pedidos.gestor_pedidos.entities.Producto; 
+import com.gestor_pedidos.gestor_pedidos.entities.Producto;
 import com.gestor_pedidos.gestor_pedidos.services.ProductoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
