@@ -5,6 +5,7 @@ import com.gestor_pedidos.gestor_pedidos.services.ProductoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,5 +21,10 @@ public class ProductController {
   @GetMapping()
   public List<Producto> productos() {
     return productoService.findAll();
+  }
+
+  @GetMapping("/{id}")
+  public ResponseEntity<?> findProduct(@PathVariable Integer id) {
+    return productoService.findByProduct(id);
   }
 }
