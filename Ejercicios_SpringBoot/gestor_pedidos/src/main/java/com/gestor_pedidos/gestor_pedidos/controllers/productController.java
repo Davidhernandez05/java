@@ -4,16 +4,13 @@ import com.gestor_pedidos.gestor_pedidos.entities.Producto;
 import com.gestor_pedidos.gestor_pedidos.services.ProductoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/product")
-public class ProductController {
+public class productController {
 
   @Autowired
   private ProductoServiceImpl productoService;
@@ -26,5 +23,15 @@ public class ProductController {
   @GetMapping("/{id}")
   public ResponseEntity<?> findProduct(@PathVariable Integer id) {
     return productoService.findByProduct(id);
+  }
+
+  @PostMapping
+  public ResponseEntity<?> createProduct(@RequestBody Producto producto) {
+    return productoService.save(producto);
+  }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<?> deleteProduct(@PathVariable Integer id) {
+    return productoService.delete(id);
   }
 }
