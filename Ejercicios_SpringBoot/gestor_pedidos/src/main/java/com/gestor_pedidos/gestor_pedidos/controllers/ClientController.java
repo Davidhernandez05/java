@@ -5,6 +5,7 @@ import com.gestor_pedidos.gestor_pedidos.services.ClienteServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,5 +28,10 @@ public class ClientController {
     }
 
     return ResponseEntity.ok().body(clienteList);
+  }
+
+  @GetMapping("/{id}")
+  public ResponseEntity<?> findClientId(@PathVariable Integer id) {
+    return clienteService.findByClient(id);
   }
 }
