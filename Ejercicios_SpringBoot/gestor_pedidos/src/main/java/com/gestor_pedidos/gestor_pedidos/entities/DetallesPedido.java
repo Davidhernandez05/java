@@ -19,7 +19,8 @@ public class DetallesPedido {
   private Pedido pedido;
 
   @ManyToOne
-  private List<Producto> productos;
+  @JoinColumn(name = "producto_id")
+  private Producto productos;
 
   @Min(value = 1, message = "Cantidad no valida.")
   private Integer cantidad;

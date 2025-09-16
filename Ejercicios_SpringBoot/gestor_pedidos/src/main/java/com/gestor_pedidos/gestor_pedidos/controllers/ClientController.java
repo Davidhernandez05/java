@@ -2,6 +2,7 @@ package com.gestor_pedidos.gestor_pedidos.controllers;
 
 import com.gestor_pedidos.gestor_pedidos.entities.Cliente;
 import com.gestor_pedidos.gestor_pedidos.services.ClienteServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import java.util.Map;
 @RequestMapping("/api/client")
 public class ClientController {
 
+  @Autowired
   private ClienteServiceImpl clienteService;
 
   @GetMapping
