@@ -4,10 +4,7 @@ import com.gestor_pedidos.gestor_pedidos.entities.Cliente;
 import com.gestor_pedidos.gestor_pedidos.services.ClienteServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -33,5 +30,15 @@ public class ClientController {
   @GetMapping("/{id}")
   public ResponseEntity<?> findClientId(@PathVariable Integer id) {
     return clienteService.findByClient(id);
+  }
+
+  @PostMapping
+  public ResponseEntity<?> saveClient(@RequestBody Cliente cliente) {
+    return clienteService.save(cliente);
+  }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<?> deleteClient(@PathVariable Integer id) {
+    return clienteService.delete(id);
   }
 }
