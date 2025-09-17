@@ -1,5 +1,7 @@
 package com.gestor_pedidos.gestor_pedidos.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,7 +17,8 @@ public class Pedido {
   private Integer id;
 
   @ManyToOne
-  private Cliente clientes;
+  private Cliente cliente;
 
+  @JsonIgnoreProperties
   private Double total;
 }

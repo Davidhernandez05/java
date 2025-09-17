@@ -7,10 +7,10 @@ import java.util.List;
 
 public interface PedidosService {
 
-  List<Pedido> findAll();
+  ResponseEntity<?> findAll();
   ResponseEntity<?> findByPedido(Integer id);
 
-  ResponseEntity<?> save(Pedido pedido);
+  ResponseEntity<?> save(Pedido pedido, Integer id);
   ResponseEntity<?> update(Integer id, Pedido pedido);
   ResponseEntity<?> delete(Integer id);
 }
