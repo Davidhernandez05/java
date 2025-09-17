@@ -19,6 +19,6 @@ public class Pedido {
   @ManyToOne
   private Cliente cliente;
 
-  @JsonIgnoreProperties
+  @JsonProperty(access = JsonProperty.Access.READ_ONLY) // -> Ignora en entrada pero muestra en salida
   private Double total;
 }
