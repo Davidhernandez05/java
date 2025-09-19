@@ -1,10 +1,7 @@
 package com.gestor_pedidos.gestor_pedidos.services;
 
 import com.gestor_pedidos.gestor_pedidos.entities.DetallesPedido;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.http.ResponseEntity;
-
-import java.util.List;
 
 public interface DetallesService {
 
