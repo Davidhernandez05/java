@@ -72,10 +72,4 @@ public class DetallesServiceImpl implements DetallesService{
 
     return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("Mensaje:", "No se encontró ningún detalle con el id: " + id));
   }
-
-  @Override
-  @Transactional
-  public ResponseEntity<?> updateDetails(DetallesPedido detallesPedido, Integer id) {
-    return null;
-  }
 }

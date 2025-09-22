@@ -10,6 +10,5 @@ public interface DetallesService {
 
   ResponseEntity<?> saveDetails(DetallesPedido detallesPedido, Integer idPedido);
   ResponseEntity<?> deleteDetails(Integer id);
-  ResponseEntity<?> updateDetails(DetallesPedido detallesPedido, Integer id);
 
 }
