@@ -63,7 +63,14 @@ public class DetallesServiceImpl implements DetallesService{
   @Override
   @Transactional
   public ResponseEntity<?> deleteDetails(Integer id) {
-    return null;
+    Optional<DetallesPedido> optionalDetalles = detalleRepository.findById(id);
+
+    if (optionalDetalles.isPresent()) {
+      detalleRepository.delete(optionalDetalles.get());
+      return ResponseEntity.status(HttpStatus.NO_CONTENT).body(Map.of("Mensaje:", "Se elimino correctamente el id: " + id));
+    }
+
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("Mensaje:", "No se encontró ningún detalle con el id: " + id));
   }
 
   @Override
