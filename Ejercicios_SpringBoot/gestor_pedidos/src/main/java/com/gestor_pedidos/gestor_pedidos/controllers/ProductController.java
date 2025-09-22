@@ -12,7 +12,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/product")
-public class productController {
+public class ProductController {
 
   @Autowired
   private ProductoServiceImpl productoService;

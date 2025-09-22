@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import lombok.Data;
 
-import java.util.List;
-
 @Entity
 @Data
 @Table(name = "Detalles")
