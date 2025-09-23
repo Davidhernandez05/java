@@ -29,5 +29,8 @@ public class DetailsController {
     return detallesService.saveDetails(detail, id);
   }
 
-  
+  @DeleteMapping("{id}")
+  public ResponseEntity<?> deleteDetail(@PathVariable Integer id) {
+    return detallesService.deleteDetails(id);
+  }
 }
